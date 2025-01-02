@@ -1,13 +1,16 @@
 class Solution:
     def moveZeroes(self, nums: list[int]) -> None:
-        last_non_zero_index = 0
+        size = len(nums)
+        head_zero_pointer = -1
 
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                temp = nums[last_non_zero_index]
-                nums[last_non_zero_index] = nums[i]
-                nums[i] = temp
-                last_non_zero_index += 1
+        for i in range(size):
+            if nums[i] == 0:
+                if head_zero_pointer == -1:
+                    head_zero_pointer = i
+            elif head_zero_pointer != -1 and i > head_zero_pointer:
+                nums[head_zero_pointer] = nums[i]
+                nums[i] = 0
+                head_zero_pointer += 1
 
 
 sol = Solution()
