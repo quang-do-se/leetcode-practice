@@ -1,43 +1,37 @@
-def preprocess(t):
-    next = [[-1] * 26 for _ in range(len(t))] 
+class Solution:
+    def __init__(self, t: str):
+        self.preprocess(t)
 
-    for i in range(len(t) - 1, -1, -1):
-        for c in range(26):
-            if i < len(t) - 1:
-                next[i][c] = next[i + 1][c] 
+    def preprocess(self, t: str):
+        self.next = [[-1] * 26 for _ in range(len(t))] 
 
-            if ord(t[i]) - ord('a') == c:
-                next[i][c] = i
+        for i in range(len(t) - 1, -1, -1):
+            for c in range(26):
+                if i < len(t) - 1:
+                    self.next[i][c] = self.next[i + 1][c] 
 
-    return next
+                if ord(t[i]) - ord('a') == c:
+                    self.next[i][c] = i
 
+    def isSubsequence(self, s: str):
+        j = 0
 
-def is_subsequence(t, s):
-    next = preprocess(t)
-    j = 0
+        for c in s:
+            j = self.next[j][ord(c) - ord('a')]
 
-    for c in s:
-        j = next[j][ord(c) - ord('a')]
+            if j == -1:
+                return False
 
-        if j == -1:
-            return False
-
-    return True
+        return True
 
 
 # Example usage:
-
 t = "abcbcd"
+sol = Solution(t)
 
-s1 = "abc"
-
-s2 = "abdc"
-
-
-
-print(is_subsequence(t, s1))  # True
-
-print(is_subsequence(t, s2))  # False
+print(sol.isSubsequence(""))  # True
+print(sol.isSubsequence("abc"))  # True
+print(sol.isSubsequence("abdc"))  # False
 
 
 """
