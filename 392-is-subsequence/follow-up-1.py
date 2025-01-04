@@ -25,10 +25,11 @@ class Solution:
             # If `x` or `current_position` is not found, it returns an index equal to `len(list)`
             if next_position == len(index_list):
                 return False
-            
+
             current_position = index_list[next_position]
 
         return True
+
 
 # Example usage
 t = "ahbgdcea"
@@ -55,15 +56,15 @@ Implementation Steps:
 
     1. Preprocessing:
        The preprocessing step creates a mapping of character positions in t. This allows us to quickly look up where each character appears.
-    
+
     2. Checking Subsequence:
-       For each `s`, the `isSubsequence` method uses binary search to find the next valid position of each character in `t`. 
+       For each `s`, the `isSubsequence` method uses binary search to find the next valid position of each character in `t`.
        This avoids rescanning `t` from the start.
 
 Time Complexity:
 
     Preprocessing: O(n) where n is the length of `t`
-    Checking each subsequence: O(m * logn) where m is the length of `s` 
+    Checking each subsequence: O(m * logn) where m is the length of `s`
 
     For k elements of s, the time complexity is O(n + k * m * logn) or O(n + kmlogn)
 

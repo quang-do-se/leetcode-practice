@@ -10,9 +10,12 @@ class Solution:
                 slow += 1
                 if slow == len(s):
                     return True
-        
+
         return False
 
-    
+
 sol = Solution()
-print(sol.isSubsequence("b", "abc"))
+
+print(sol.isSubsequence("", "ahbgdcea"))     # True
+print(sol.isSubsequence("abc", "ahbgdcea"))  # True
+print(sol.isSubsequence("abec", "ahbgdcea")) # False
