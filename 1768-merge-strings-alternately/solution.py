@@ -4,6 +4,7 @@ class Solution:
         minLen = min(len1, len2)
         s = []
         i = 0
+        
         while i < minLen:
             s.append(word1[i])
             s.append(word2[i])
