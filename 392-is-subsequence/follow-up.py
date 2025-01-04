@@ -1,17 +1,19 @@
 class Solution:
     def __init__(self, t: str):
-        self.preprocess(t)
+        self.next = self.preprocess(t)
 
     def preprocess(self, t: str):
-        self.next = [[-1] * 26 for _ in range(len(t))] 
+        next = [[-1] * 26 for _ in range(len(t))] 
 
         for i in range(len(t) - 1, -1, -1):
             for c in range(26):
                 if i < len(t) - 1:
-                    self.next[i][c] = self.next[i + 1][c] 
+                    next[i][c] = next[i + 1][c] 
 
                 if ord(t[i]) - ord('a') == c:
-                    self.next[i][c] = i
+                    next[i][c] = i
+
+        return next
 
     def isSubsequence(self, s: str):
         j = 0
@@ -29,9 +31,9 @@ class Solution:
 t = "abcbcd"
 sol = Solution(t)
 
-print(sol.isSubsequence(""))  # True
+print(sol.isSubsequence(""))     # True
 print(sol.isSubsequence("abc"))  # True
-print(sol.isSubsequence("abdc"))  # False
+print(sol.isSubsequence("abdc")) # False
 
 
 """
