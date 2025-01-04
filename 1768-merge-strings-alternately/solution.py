@@ -1,11 +1,11 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         len1, len2 = len(word1), len(word2)
-        minLen = min(len1, len2)
+        min_len = min(len1, len2)
         s = []
         i = 0
-        
-        while i < minLen:
+
+        while i < min_len:
             s.append(word1[i])
             s.append(word2[i])
             i += 1
