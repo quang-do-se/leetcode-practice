@@ -65,7 +65,7 @@ Time Complexity:
     Preprocessing: O(n) where n is the length of `t`
     Checking each subsequence: O(m * logn) where m is the length of `s` 
 
-    For k elements of s, the time complexity is O(n + k * m * logn) or O(n)
+    For k elements of s, the time complexity is O(n + k * m * logn) or O(n + kmlogn)
 
 Space Complexity:
 
