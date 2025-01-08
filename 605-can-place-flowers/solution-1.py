@@ -1,24 +1,20 @@
 class Solution:
     def canPlaceFlowers(self, flowerbed: list[int], n: int) -> bool:
-        # First attempt
-        max_slots = 0
-        i = 0
-        while i < len(flowerbed):
+        # Editorial solution
+        for i in range(len(flowerbed)):
             if flowerbed[i] == 0:
-                if i == 0: # beginning
-                    if i + 1 >= len(flowerbed) or flowerbed[i + 1] != 1:
-                        max_slots += 1
-                        i += 1  # skip next slot
-                elif i == len(flowerbed) - 1: # end
-                    if flowerbed[i - 1] != 1:
-                        max_slots += 1
-                elif flowerbed[i - 1] != 1 and flowerbed[i + 1] != 1:
-                    max_slots += 1
-                    i += 1  # skip next slot
+                is_left_slot_available = (i == 0) or (flowerbed[i - 1] == 0)
+                is_right_slot_available = (i == len(flowerbed) - 1) or (flowerbed[i + 1] == 0)
 
+                if is_left_slot_available and is_right_slot_available:
+                    flowerbed[i] = 1
+                    n -= 1
+
+                    if n <= 0:
+                        return True
             i += 1
 
-        return n <= max_slots
+        return n <= 0
 
 
 sol = Solution()
