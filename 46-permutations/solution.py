@@ -19,12 +19,17 @@ print(sol.permute([0, 1]))
 
 
 """
+Be careful with list concatenation
+
 >>> [1] + 2
 TypeError: can only concatenate list (not "int") to list
+
 >>> [1] + [2]
 [1, 2]
+
 >>> [[1]] + [2]
 [[1], 2]
+
 >>> [[1]] + [[2]]
 [[1], [2]]
 """
