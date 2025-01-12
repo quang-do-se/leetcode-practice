@@ -1,22 +1,24 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
+        # Two pointers approach
         vowels = set('aeiouAEIOU')
 
-        l = 0
-        r = len(s) - 1
-        a = list(s)
+        left_pointer = 0
+        right_pointer = len(s) - 1
+        s_array = list(s)
 
-        while l < r:
-            if a[l] in vowels:
-                while a[r] not in vowels:
-                    r -= 1
+        while left_pointer < right_pointer:
+            if s_array[left_pointer] in vowels:
+                while s_array[right_pointer] not in vowels:
+                    right_pointer -= 1
 
-                a[l], a[r] = a[r], a[l]
-                r -= 1
+                # Swap characters
+                s_array[left_pointer], s_array[right_pointer] = s_array[right_pointer], s_array[left_pointer]
+                right_pointer -= 1
 
-            l += 1
+            left_pointer += 1
 
-        return ''.join(a)
+        return ''.join(s_array)
 
 
 sol = Solution()
