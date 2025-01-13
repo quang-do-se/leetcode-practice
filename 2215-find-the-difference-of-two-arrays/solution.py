@@ -1,11 +1,11 @@
 class Solution:
     def findDifference(self, nums1: list[int], nums2: list[int]) -> list[list[int]]:
-        dict1 = {}
-        dict2 = {}
-        for n in nums1:
+        dict1, dict2 = {}, {}
+
+        for n in set(nums1):
             dict1[n] = None
 
-        for n in nums2:
+        for n in set(nums2):
             dict2[n] = None
 
         diff1, diff2 = [], []
@@ -21,6 +21,6 @@ class Solution:
 
 
 sol = Solution()
-print(sol.findDifference([1,2,3] ,[2,4,6]))
-print(sol.findDifference([1,2,3,3] ,[1,1,2,2]))
+print(sol.findDifference([1,2,3] ,[2,4,6]) == [[1,3],[4,6]])
+print(sol.findDifference([1,2,3,3] ,[1,1,2,2]) == [[3],[]])
         
