@@ -4,12 +4,12 @@ class Solution:
         word = []
 
         for c in s:
-            if c.isalnum():
-                word += c
-            elif c == ' ':
+            if c == ' ':
                 if len(word) > 0:
                     words.append(''.join(word))
                 word = []
+            else:
+                word += c
 
         if len(word) > 0:
             words.append(''.join(word))
