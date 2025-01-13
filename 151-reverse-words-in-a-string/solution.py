@@ -1,21 +1,18 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         words = []
+        word = []
 
-        in_word = False
-        word = ""
         for c in s:
             if c.isalnum():
-                in_word = True
                 word += c
             elif c == ' ':
-                if in_word:
-                    words.append(word)
-                word = ""
-                in_word = False
+                if len(word) > 0:
+                    words.append(''.join(word))
+                word = []
 
-        if in_word:
-            words.append(word)
+        if len(word) > 0:
+            words.append(''.join(word))
 
         words.reverse()
 
