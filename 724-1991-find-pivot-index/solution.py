@@ -1,15 +1,20 @@
 class Solution:
     def pivotIndex(self, nums: list[int]) -> int:
-        left = 0
+        left_sum = 0
         total = sum(nums)
 
         for i in range(len(nums)):
-            right = total - left - nums[i]
-            if left == right:
+            right_sum = total - left_sum - nums[i]
+            if left_sum == right_sum:
                 return i
-            left += nums[i]
+            left_sum += nums[i]
 
         return -1
 
 sol = Solution()
-print(sol.pivotIndex([1,7,3,6,5,6]))
+print(sol.pivotIndex([1, 7, 3, 6, 5, 6]) == 3)
+print(sol.pivotIndex([1, 2, 3]) == -1)
+print(sol.pivotIndex([2, 1, -1]) == 0)
+print(sol.pivotIndex([2, 3, -1, 8, 4]) == 3)
+print(sol.pivotIndex([1, -1, 4]) == 2)
+print(sol.pivotIndex([2, 5]) == -1)
