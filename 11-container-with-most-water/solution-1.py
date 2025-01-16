@@ -1,6 +1,7 @@
 class Solution:
     def maxArea(self, height: list[int]) -> int:
         # Two-pointer greedy algorithm
+        # https://leetcode.com/problems/container-with-most-water/solutions/6099/yet-another-way-to-see-what-happens-in-the-on-algorithm/
         size = len(height)
         max = 0
 
