@@ -7,6 +7,7 @@ class Solution:
             else:
                 count[n] = 1
 
+        print(count)
         unique = {}
         for k in count:
             if count[k] in unique:
