@@ -33,3 +33,5 @@ class Solution:
 sol = Solution()
 print(sol.maxDepth(TreeNode.generateFromArray([3,9,20,None,None,15,7])) == 3)
 print(sol.maxDepth(TreeNode.generateFromArray([1,None,2])) == 2)
+print(sol.maxDepth(TreeNode.generateFromArray([])) == 0)
+print(sol.maxDepth(TreeNode.generateFromArray([1])) == 1)
