@@ -8,6 +8,16 @@
 
 - Consider if index can be out of bound for either pointer
 
+## Identity vs Equality
+
+In Python:
+  - use `is` when you want to check against an object's identity (e.g. checking to see if `var` is `None` or checks if two variables point to the same object in memory).
+  - Use `==` operator when you want to check equality or compares the content of objects. (e.g. check if two lists contain the same elements).
+
+In Java:
+  - use `==` operator when you want to check against an object's identity (e.g. checks if two variables point to the same object in memory).
+  - Use `equals()` method when you want to check equality or compares the content of objects. (e.g. check if two lists contain the same elements).
+
 ## Collection
 
 ### Concurrent Modification
