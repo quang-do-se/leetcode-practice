@@ -37,7 +37,7 @@ class Solution:
         # Recursive approach
         return self.reverse_list_helper(None, head)
 
-    def reverse_list_helper(self, reversed_list: ListNode, remaining_list: Optional[ListNode]) -> Optional[ListNode]:
+    def reverse_list_helper(self, reversed_list: Optional[ListNode], remaining_list: Optional[ListNode]) -> Optional[ListNode]:
         if remaining_list is None:
             return reversed_list
 
