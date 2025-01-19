@@ -34,20 +34,16 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Recursive approach
-        return self.reverse_list_helper(None, head)
+        # Interative approach
+        reversed_list = None
 
-    def reverse_list_helper(self, reversed_list: ListNode, remaining_list: Optional[ListNode]) -> Optional[ListNode]:
-        if remaining_list is None:
-            return reversed_list
-
-        node = remaining_list
-        remaining_list = remaining_list.next
-
-        node.next = reversed_list
-
-        return self.reverse_list_helper(node, remaining_list)
-
+        while head is not None:
+            next_head = head.next
+            head.next = reversed_list
+            reversed_list = head
+            head = next_head
+        
+        return reversed_list
 
 sol = Solution()
 print(ListNode.list_to_array(sol.reverseList(ListNode.generate_from_array([1,2,3,4,5]))) == [5,4,3,2,1])
