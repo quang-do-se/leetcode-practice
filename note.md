@@ -18,6 +18,10 @@ In Java:
   - use `==` operator when you want to check against an object's identity (e.g. checks if two variables point to the same object in memory).
   - Use `equals()` method when you want to check equality or compares the content of objects. (e.g. check if two lists contain the same elements).
 
+## Recursive to Iterative
+
+When converting a recursive algorithm to an iterative approach, we typically need to use a `stack` or `queue` to simulate the recursive function's call stack. If the recursive function maintains state, such as accumulations or additional variables, we may need to use a custom object, extra data structures (e.g., dictionaries or lists), or tuples in Python to store and track that state.
+
 ## Collection
 
 ### Concurrent Modification

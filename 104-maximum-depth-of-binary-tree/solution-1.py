@@ -1,4 +1,5 @@
 from typing import Optional, Self
+from collections import deque
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -28,11 +29,12 @@ class Solution:
         if root is None:
             return 0
 
-        stack = [(root, 1)]
+        stack = deque()
+        stack.append((root, 1))
         max_depth = 1
 
         while len(stack) > 0:
-            node, current_depth = stack.pop()
+            node, current_depth = stack.popleft()
             max_depth = max(max_depth, current_depth)
             if node.left is not None:
                 stack.append((node.left, current_depth + 1))
