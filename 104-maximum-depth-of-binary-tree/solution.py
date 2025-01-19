@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Self
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -6,24 +6,30 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    @staticmethod
+    def generateFromArray(binary_tree_array: list[int], index = 0) -> Self:
+        node = None
+
+        if index > len(binary_tree_array) - 1 or binary_tree_array[index] is None:
+            return node
+        
+        if binary_tree_array[index] is not None:
+            node = TreeNode(val = binary_tree_array[index])
+
+        node.left = TreeNode.generateFromArray(binary_tree_array, index * 2 + 1)
+        node.right = TreeNode.generateFromArray(binary_tree_array, index * 2 + 2)
+
+        return node
+
+
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        if root == None:
+        if root is None:
             return 0
 
-        maxLeft = 0
-        if root.left != None:
-            maxLeft = self.maxDepth(root.left)
-
-        maxRight = 0
-        if root.right != None:
-            maxRight = self.maxDepth(root.right)
-
-        return 1 + max(maxLeft, maxRight)
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 
-node = TreeNode(TreeNode(), TreeNode())
 sol = Solution()
-print(sol.maxDepth(node))
-
-
+print(sol.maxDepth(TreeNode.generateFromArray([3,9,20,None,None,15,7])) == 3)
+print(sol.maxDepth(TreeNode.generateFromArray([1,None,2])) == 2)
