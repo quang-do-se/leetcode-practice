@@ -27,6 +27,7 @@ class Solution:
         return self.find_leaf_nodes(root1) == self.find_leaf_nodes(root2)
 
     def find_leaf_nodes(self, root: Optional[TreeNode]) -> List:
+        # Recursive approach
         if root is None:
             return []
 
