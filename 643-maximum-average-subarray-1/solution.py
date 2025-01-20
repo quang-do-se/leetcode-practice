@@ -1,9 +1,12 @@
+from typing import List
+
+
 class Solution:
-    def findMaxAverage(self, nums: list[int], k: int) -> float:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
         sum  = 0
         for i in range(k):
             sum += nums[i]
-        
+
         max = sum
         r = k
         l = 0
@@ -11,14 +14,14 @@ class Solution:
 
         while r < size:
             sum += nums[r]
-            sum -= nums[l] 
+            sum -= nums[l]
             if sum > max:
                 max = sum
             r += 1
             l += 1
 
         return max / k
-    
+
 sol = Solution()
 print(sol.findMaxAverage([1, 12, -5, -6, 50, 3], 4) == 12.75)
 print(sol.findMaxAverage([5], 1) == 5.0)

@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def pivotIndex(self, nums: list[int]) -> int:
+    def pivotIndex(self, nums: List[int]) -> int:
         left_sum = 0
         total_sum = sum(nums)
 
@@ -10,6 +13,7 @@ class Solution:
             left_sum += nums[i]
 
         return -1
+
 
 sol = Solution()
 print(sol.pivotIndex([1, 7, 3, 6, 5, 6]) == 3)

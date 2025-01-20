@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def canPlaceFlowers(self, flowerbed: list[int], n: int) -> bool:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
         # First attempt
         max_slots = 0
         i = 0

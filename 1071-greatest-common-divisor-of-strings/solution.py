@@ -16,5 +16,6 @@ class Solution:
         
         return ""  
 
+
 sol = Solution()    
 print(sol.gcdOfStrings("ABABAB", "AB"))
