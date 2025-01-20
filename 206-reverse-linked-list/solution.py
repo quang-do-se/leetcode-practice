@@ -1,4 +1,5 @@
-from typing import Self, Optional
+from typing import List, Self, Optional
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -6,28 +7,26 @@ class ListNode:
         self.next = next
 
     @staticmethod
-    def generate_from_array(array: list[int], index = 0) -> Self:
-        prev_node = None
-        head = None
+    def generate_from_array(array: List[int], index = 0) -> Self:
+        if not array:
+            return None
 
-        for e in array:
-            node = ListNode(e)
-            if prev_node is not None:
-                prev_node.next = node
-            else:
-                head = node
+        head = ListNode(array[0])
+        current = head
 
-            prev_node = node
+        for e in array[1:]:
+            current.next = ListNode(e)
+            current = current.next
 
         return head
 
     @staticmethod
-    def list_to_array(list: Optional[Self]) -> list[int]:
+    def list_to_array(input_list: Optional[Self]) -> List[int]:
         array = []
-        
-        while list is not None:
-            array.append(list.val)
-            list = list.next
+
+        while input_list is not None:
+            array.append(input_list.val)
+            input_list = input_list.next
 
         return array
 
