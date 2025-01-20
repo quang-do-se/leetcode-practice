@@ -3,17 +3,17 @@ from typing import List
 
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        last_non_zero_index = 0  # Points to the next position for a non-zero value
+        writer = 0
 
         # Move non-zero elements to the front
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                nums[last_non_zero_index] = nums[i]
-                last_non_zero_index += 1
+        for reader in range(len(nums)):
+            if nums[reader] != 0:
+                nums[writer] = nums[reader]
+                writer += 1
 
         # Fill the remaining positions with zeroes
-        for i in range(last_non_zero_index, len(nums)):
-            nums[i] = 0
+        for write_zero in range(writer, len(nums)):
+            nums[write_zero] = 0
 
 
 sol = Solution()
