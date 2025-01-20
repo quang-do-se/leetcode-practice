@@ -27,18 +27,24 @@ class Solution:
         return self.find_leaf_nodes(root1) == self.find_leaf_nodes(root2)
 
     def find_leaf_nodes(self, root: Optional[TreeNode]) -> List:
+        # Iterative approach
         if root is None:
             return []
 
-        if root.left is None and root.right is None:
-            return [root.val]
-
         leaf_nodes = []
-        if root.left is not None:
-            leaf_nodes += self.find_leaf_nodes(root.left)
+        queue = [root]
 
-        if root.right is not None:
-            leaf_nodes += self.find_leaf_nodes(root.right)
+        while len(queue) > 0:
+            node = queue.pop()
+
+            if node.left is None and node.right is None:
+                leaf_nodes.append(node.val)
+
+            if node.left is not None:
+                queue.append(node.left)
+
+            if node.right is not None:
+                queue.append(node.right)
 
         return leaf_nodes
 
