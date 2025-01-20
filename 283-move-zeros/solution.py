@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        slow = 0
+        head_zero_pointer = -1
 
         for i in range(len(nums)):
             if nums[i] == 0:
@@ -19,7 +19,6 @@ sol = Solution()
 
 list = [0,1,0,3,12]
 sol.moveZeroes(list)
-print(list)
 print(list == [1, 3, 12, 0, 0])
 
 list = [1]
