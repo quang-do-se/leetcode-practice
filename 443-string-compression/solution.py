@@ -1,10 +1,13 @@
+from typing import List
+
+
 class Solution:
-    def compress(self, chars: list[str]) -> int:
+    def compress(self, chars: List[str]) -> int:
         size = len(chars)
         group_char = None
         next_index = 0
         group_count = 0
-        
+
         for i in range(size):
             if group_char is None:
                 next_index = i + 1
@@ -24,7 +27,7 @@ class Solution:
                 group_char = chars[i]
                 group_count = 1
                 next_index += 1
-        
+
         if group_count > 1:
             group_count_str = str(group_count)
 
@@ -33,6 +36,7 @@ class Solution:
                 next_index += 1
 
         return next_index
+
 
 sol = Solution()
 

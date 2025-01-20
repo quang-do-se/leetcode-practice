@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def increasingTriplet(self, nums: list[int]) -> bool:
+    def increasingTriplet(self, nums: List[int]) -> bool:
         smallest = second_smallest = float("inf")
 
         for n in nums:
@@ -9,7 +12,7 @@ class Solution:
                 second_smallest = n
             else:
                 return True
-            
+
         return False
 
 

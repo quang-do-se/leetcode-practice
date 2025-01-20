@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def productExceptSelf(self, nums: list[int]) -> list[int]:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
         prefix = [0] * n
         suffix = [0] * n
@@ -11,7 +14,7 @@ class Solution:
         suffix[n - 1] = nums[n - 1]
         for i in range(n - 2, -1, -1):
             suffix[i] = suffix[i + 1]  * nums[i]
-        
+
         output = [0] * n
 
         output[0] = suffix[1]
@@ -22,6 +25,7 @@ class Solution:
         output[n - 1] = prefix[-2]
 
         return output
+
 
 sol = Solution()
 print(sol.productExceptSelf([1,2,3,4]) == [24,12,8,6])
