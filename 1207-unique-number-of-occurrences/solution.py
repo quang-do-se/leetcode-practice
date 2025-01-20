@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def uniqueOccurrences(self, arr: list[int]) -> bool:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
         count = {}
         for n in arr:
             if n in count:
@@ -7,7 +10,6 @@ class Solution:
             else:
                 count[n] = 1
 
-        print(count)
         unique = {}
         for k in count:
             if count[k] in unique:
@@ -17,6 +19,7 @@ class Solution:
 
         return True
 
+
 sol = Solution()
-print(sol.uniqueOccurrences([1,2,2,1,1,3]))
-print(sol.uniqueOccurrences([1,2]))
+print(sol.uniqueOccurrences([1,2,2,1,1,3]) == True)
+print(sol.uniqueOccurrences([1,2]) == False)
