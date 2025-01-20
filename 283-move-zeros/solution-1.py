@@ -17,7 +17,15 @@ class Solution:
 
 
 sol = Solution()
-my_list = [0,1,0,3,12]
-sol.moveZeroes(my_list)
 
-print(my_list == [1, 3, 12, 0, 0])
+list = [0,1,0,3,12]
+sol.moveZeroes(list)
+print(list == [1, 3, 12, 0, 0])
+
+list = [1]
+sol.moveZeroes(list)
+print(list == [1])
+
+list = [1, 0]
+sol.moveZeroes(list)
+print(list == [1, 0])
