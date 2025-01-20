@@ -1,4 +1,4 @@
-from typing import Optional, Self, List
+from typing import Generator, Optional, Self, List
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -44,15 +44,17 @@ class Solution:
 
 
 sol = Solution()
+
 print(
-    (
-        sol.find_leaf_nodes(TreeNode.generate_from_array([3,5,1,6,2,9,8,None,None,7,4]))
-        == sol.find_leaf_nodes(TreeNode.generate_from_array([3,5,1,6,7,4,2,None,None,None,None,None,None,9,8]))
+        sol.leafSimilar(
+            TreeNode.generate_from_array([3,5,1,6,2,9,8,None,None,7,4]),
+            TreeNode.generate_from_array([3,5,1,6,7,4,2,None,None,None,None,None,None,9,8])
+        ) == True
     )
-    == True)
+
 print(
-    (
-        sol.find_leaf_nodes(TreeNode.generate_from_array([1,2,3])) 
-        == sol.find_leaf_nodes(TreeNode.generate_from_array([1,3,2]))
+        sol.leafSimilar(
+            TreeNode.generate_from_array([1,2,3]),
+            TreeNode.generate_from_array([1,3,2])
+        ) == False
     )
-    == False)
