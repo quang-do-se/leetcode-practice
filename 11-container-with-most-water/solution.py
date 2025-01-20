@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def maxArea(self, height: list[int]) -> int:
+    def maxArea(self, height: List[int]) -> int:
         # Brute force n^2
         i = 0
         size = len(height)
@@ -15,6 +18,7 @@ class Solution:
             i += 1
 
         return max
+
 
 sol = Solution()
 print(sol.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49)
