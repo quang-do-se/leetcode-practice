@@ -27,6 +27,10 @@ When converting a recursive algorithm to an iterative approach, we typically nee
 The maximum number of leaves in a binary tree is `n / 2`​ (for a full binary tree),
 or `2 ^ (log(n) - 1) == 2 ^ log(n) / 2 == n / 2`
 
+Use `stack` for DFS.
+
+Use `queue` for BFS.
+
 ## Collection
 
 ### Concurrent Modification
