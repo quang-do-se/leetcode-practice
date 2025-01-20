@@ -1,5 +1,8 @@
+from typing import List
+
+
 class Solution:
-    def findDifference(self, nums1: list[int], nums2: list[int]) -> list[list[int]]:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
         dict1, dict2 = {}, {}
 
         for n in set(nums1):

@@ -7,6 +7,7 @@ class Solution:
             s += word1[i] + word2[i]
 
         return s + word1[min_len:] + word2[min_len:]
-    
+
+
 sol = Solution()
-print(sol.mergeAlternately("abc", "pqr"))
+print(sol.mergeAlternately("abc", "pqr") == "apbqcr")

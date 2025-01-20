@@ -19,6 +19,7 @@ class Solution:
             i += 1
 
         return ''.join(s)
-    
+
+
 sol = Solution()
-print(sol.mergeAlternately("abc", "pqr"))
+print(sol.mergeAlternately("abc", "pqr") == "apbqcr")
