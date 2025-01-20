@@ -22,6 +22,11 @@ In Java:
 
 When converting a recursive algorithm to an iterative approach, we typically need to use a `stack` or `queue` to simulate the recursive function's call stack. If the recursive function maintains state, such as accumulations or additional variables, we may need to use a custom object, extra data structures (e.g., dictionaries or lists), or tuples in Python to store and track that state.
 
+## Binary Tree
+
+The maximum number of leaves in a binary tree is `n / 2`​ (for a full binary tree),
+or `2 ^ (log(n) - 1) == 2 ^ log(n) / 2 == n / 2`
+
 ## Collection
 
 ### Concurrent Modification
