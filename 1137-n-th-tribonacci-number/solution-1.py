@@ -1,12 +1,8 @@
 class Solution:
-    cache = {}
+    cache = {0: 0, 1: 1, 2: 1}
 
     def tribonacci(self, n: int) -> int:
-        if n <= 0:
-            return 0
-        elif n <= 2:
-            return 1
-        elif n in self.cache:
+        if n in self.cache:
             return self.cache[n]
         
         self.cache[n] = self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci(n - 3)
