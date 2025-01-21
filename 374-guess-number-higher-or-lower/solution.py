@@ -27,9 +27,9 @@ class Solution:
 
             if response > 0:    # target is higher than guess
                 low = mid + 1
-            elif response < 0:  # target is smaller than buess
+            elif response < 0:  # target is smaller than guess
                 high = mid - 1
-            else:
+            else:               # target is equal to guess
                 return mid
 
 
