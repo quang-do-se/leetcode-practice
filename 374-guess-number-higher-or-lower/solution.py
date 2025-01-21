@@ -16,19 +16,18 @@ def guess(num: int) -> int:
     return 0
 
 class Solution:
-
     def guessNumber(self, n: int) -> int:
         low = 1
         high = n
 
-        while True:
+        while low <= high:
             # mid = (low + high) // 2  # Could be overflow if low and high are big enough
             mid = low + (high - low) // 2  # Avoid overflow == (2 * low + high - low) // 2
             response = guess(mid)
 
-            if response > 0:  # guess is smaller than target
+            if response > 0:    # target is higher than guess
                 low = mid + 1
-            elif response < 0:  # guess is bigger than target
+            elif response < 0:  # target is smaller than buess
                 high = mid - 1
             else:
                 return mid
@@ -48,4 +47,3 @@ print(sol.guessNumber(range) == 1)
 
 range, pick = 2, 2
 print(sol.guessNumber(range) == 2)
-
