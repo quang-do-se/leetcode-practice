@@ -18,3 +18,5 @@ sol = Solution()
 
 print(sol.countBits(2) == [0,1,1])
 print(sol.countBits(5) == [0,1,1,2,1,2])
+print(sol.countBits(7) == [0, 1, 1, 2, 1, 2, 2, 3])
+print(sol.countBits(15) == [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4])
