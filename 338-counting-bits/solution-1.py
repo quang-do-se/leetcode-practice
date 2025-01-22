@@ -10,12 +10,12 @@ class Solution:
         #
         # Examples:
         # P(0)  = 0                                      # base case
-        # 
+        #
         # P(1)  = P(0 + 1) = P(0 + 2^0) = P(0) + 1 = 1
-        # 
+        #
         # P(2)  = P(0 + 2) = P(0 + 2^1) = P(0) + 1 = 1
         # P(3)  = P(1 + 2) = P(1 + 2^1) = P(1) + 1 = 2
-        # 
+        #
         # P(4)  = P(0 + 4) = P(0 + 2^2) = P(0) + 1 = 1
         # P(5)  = P(1 + 4) = P(1 + 2^2) = P(1) + 1 = 2
         # P(6)  = P(2 + 4) = P(2 + 2^2) = P(2) + 1 = 2
@@ -43,8 +43,8 @@ class Solution:
 
         return res
 
-sol = Solution()
 
+sol = Solution()
 
 print(sol.countBits(2) == [0,1,1])
 print(sol.countBits(5) == [0,1,1,2,1,2])
