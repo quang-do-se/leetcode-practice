@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # Memoization approach
+    # Dynamic Programming approach
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         size = len(cost)
         self.dp = [0] * size
