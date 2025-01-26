@@ -15,10 +15,8 @@ class Solution:
         return min(self.dp[0], self.dp[1])
     
 sol = Solution()
-""" print(sol.minCostClimbingStairs([1,2]))
-print(sol.minCostClimbingStairs([1,1,2]))
-print(sol.minCostClimbingStairs([1]))
-print(sol.minCostClimbingStairs([2])) """
-""" print(sol.minCostClimbingStairs([1,1,100,1])) """
-print(sol.minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1]))
-print(sol.minCostClimbingStairs([10,15,20]))
+print(sol.minCostClimbingStairs([1,2]) == 1)
+print(sol.minCostClimbingStairs([1,1,2]) == 1)
+print(sol.minCostClimbingStairs([1,1,100,1]) == 2)
+print(sol.minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1]) == 6)
+print(sol.minCostClimbingStairs([10,15,20]) == 15)
