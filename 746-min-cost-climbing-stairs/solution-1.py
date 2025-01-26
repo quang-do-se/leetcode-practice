@@ -12,7 +12,7 @@ class Solution:
             return self.memoi[index]
         if index >= len(cost) - 2:
             return cost[index]
-        
+
         self.memoi[index] = cost[index] + min(self.min_cost_climbing_stairs(index + 1, cost), self.min_cost_climbing_stairs(index + 2, cost))
         return self.memoi[index]
 

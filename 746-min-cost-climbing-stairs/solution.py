@@ -9,7 +9,7 @@ class Solution:
     def min_cost_climbing_stairs(self, index: int, cost: List[int]) -> int:
         if index >= len(cost) - 2:
             return cost[index]
-        
+
         total_cost = cost[index] + min(self.min_cost_climbing_stairs(index + 1, cost), self.min_cost_climbing_stairs(index + 2, cost))
         return total_cost
 

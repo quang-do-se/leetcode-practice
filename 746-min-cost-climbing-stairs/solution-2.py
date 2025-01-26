@@ -13,7 +13,8 @@ class Solution:
             self.dp[i] = cost[i] + min(self.dp[i + 1], self.dp[i + 2])
 
         return min(self.dp[0], self.dp[1])
-    
+
+
 sol = Solution()
 print(sol.minCostClimbingStairs([1,2]) == 1)
 print(sol.minCostClimbingStairs([1,1,2]) == 1)
