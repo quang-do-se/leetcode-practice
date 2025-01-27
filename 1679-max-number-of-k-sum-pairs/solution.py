@@ -21,7 +21,7 @@ class Solution:
             if search in map and map[search] > 0:
                 res += 1
                 map[search] -= 1
-                
+
         return res
 
 
