@@ -22,33 +22,29 @@ class TreeNode:
         node.right = TreeNode.generate_from_array(binary_tree_array, index * 2 + 2)
 
         return node
-    
+
     @staticmethod
     def binary_tree_to_array(tree: Optional[Self]) -> List:
         if tree is None:
             return []
 
-        pre = []
+        result = []
 
         queue = deque([(tree, 0)])
-        last_node = 0
+        max_index = 0
 
         while len(queue) > 0:
             node, index = queue.popleft()
-            pre.append((node, index))
+
+            # Ensure the result list is large enough
+            if index >= len(result):
+                result.extend([None] * (index - len(result) + 1))
+
+            result[index] = node.val
 
             if node.left is not None:
-                left_index = index * 2 + 1
-                queue.append((node.left, left_index))
-                last_node = left_index
+                queue.append((node.left, index * 2 + 1))
             if node.right is not None:
-                right_index = index * 2 + 2
-                queue.append((node.right, right_index))
-                last_node = right_index
+                queue.append((node.right, index * 2 + 2))
 
-        post = [None] * (last_node + 1)
-        for e in pre:
-            node, index  = e
-            post[index] = node.val
-
-        return post
+        return result
