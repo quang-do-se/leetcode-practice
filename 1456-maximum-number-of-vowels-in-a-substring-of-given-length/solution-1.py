@@ -17,8 +17,8 @@ class Solution:
             if vowel_count > max:
                 max = vowel_count
 
-            if max == k:
-                return max
+                if max == k:
+                    return max
 
         return max
 
