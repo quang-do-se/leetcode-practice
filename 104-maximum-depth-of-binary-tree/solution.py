@@ -1,4 +1,4 @@
-from typing import List, Optional, Self
+from typing import Optional
 import os
 import sys
 
