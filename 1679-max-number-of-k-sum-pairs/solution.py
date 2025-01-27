@@ -15,6 +15,7 @@ class Solution:
         for n in nums:
             if map[n] <= 0:
                 continue
+            # Reduce elements we've already visited
             map[n] -= 1
 
             search = k - n
