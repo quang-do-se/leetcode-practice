@@ -31,7 +31,6 @@ class TreeNode:
         result = []
 
         queue = deque([(tree, 0)])
-        max_index = 0
 
         while len(queue) > 0:
             node, index = queue.popleft()
