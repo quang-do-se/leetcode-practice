@@ -4,11 +4,11 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from tree_node import TreeNode
+from complete_binary_tree import BinaryTree
 
 
 class Solution:
-    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+    def searchBST(self, root: Optional[BinaryTree], val: int) -> Optional[BinaryTree]:
         if not root or root.val == val:
             return root
 
@@ -22,10 +22,10 @@ class Solution:
 sol = Solution()
 
 print(
-        TreeNode.binary_tree_to_array(sol.searchBST(TreeNode.generate_from_array([4,2,7,1,3]), 2))
+        BinaryTree.binary_tree_to_array(sol.searchBST(BinaryTree.generate_from_array([4,2,7,1,3]), 2))
         == [2,1,3]
     )
 print(
-        TreeNode.binary_tree_to_array(sol.searchBST(TreeNode.generate_from_array([4,2,7,1,3]), 5))
+        BinaryTree.binary_tree_to_array(sol.searchBST(BinaryTree.generate_from_array([4,2,7,1,3]), 5))
         == []
     )

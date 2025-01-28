@@ -2,24 +2,21 @@ from collections import deque
 from typing import List, Optional, Self
 
 
-class TreeNode:
+class BinaryTree:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
     @staticmethod
-    def generate_from_array(binary_tree_array: List[int], index = 0) -> Self:
-        node = None
-
+    def generate_from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
         if index > len(binary_tree_array) - 1 or binary_tree_array[index] is None:
-            return node
+            return None
 
-        if binary_tree_array[index] is not None:
-            node = TreeNode(val = binary_tree_array[index])
+        node = BinaryTree(binary_tree_array[index])
 
-        node.left = TreeNode.generate_from_array(binary_tree_array, index * 2 + 1)
-        node.right = TreeNode.generate_from_array(binary_tree_array, index * 2 + 2)
+        node.left = BinaryTree.generate_from_array(binary_tree_array, index * 2 + 1)
+        node.right = BinaryTree.generate_from_array(binary_tree_array, index * 2 + 2)
 
         return node
 
