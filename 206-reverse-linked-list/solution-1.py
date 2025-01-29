@@ -4,7 +4,7 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from list_node import ListNode
+from list_node import ListNode, LinkedList
 
 
 class Solution:
@@ -22,6 +22,6 @@ class Solution:
 
 
 sol = Solution()
-print(ListNode.list_to_array(sol.reverseList(ListNode.generate_from_array([1,2,3,4,5]))) == [5,4,3,2,1])
-print(ListNode.list_to_array(sol.reverseList(ListNode.generate_from_array([1,2]))) == [2,1])
-print(ListNode.list_to_array(sol.reverseList(ListNode.generate_from_array([]))) == [])
+print(LinkedList.list_to_array(sol.reverseList(LinkedList.generate_from_array([1,2,3,4,5]))) == [5,4,3,2,1])
+print(LinkedList.list_to_array(sol.reverseList(LinkedList.generate_from_array([1,2]))) == [2,1])
+print(LinkedList.list_to_array(sol.reverseList(LinkedList.generate_from_array([]))) == [])

@@ -6,6 +6,8 @@ class ListNode:
         self.val = val
         self.next = next
 
+
+class LinkedList:
     @staticmethod
     def generate_from_array(array: List[int], index = 0) -> Self:
         if not array:
