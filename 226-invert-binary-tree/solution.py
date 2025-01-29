@@ -4,7 +4,7 @@ from typing import Optional
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from bfs_binary_tree import BinaryTree
+from bft_binary_tree import BinaryTree
 
 class Solution:
     def invertTree(self, root: Optional[BinaryTree]) -> Optional[BinaryTree]:

@@ -17,7 +17,7 @@ class BinaryTree:
         root = BinaryTree(binary_tree_array[i])
         queue = deque([root])
 
-        while i < len(binary_tree_array) and len(queue) > 0:
+        while queue and i < len(binary_tree_array):
             node = queue.popleft()
 
             i += 1
@@ -43,7 +43,7 @@ class BinaryTree:
         result = []
         queue = deque([tree])
 
-        while len(queue) > 0:
+        while queue:
             node = queue.popleft()
             if node is not None:
                 result.append(node.val)
