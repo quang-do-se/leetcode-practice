@@ -58,9 +58,6 @@ class BinaryTree:
         return result
 
 
-array = [None]
-print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
-
 """
 array = [0]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
