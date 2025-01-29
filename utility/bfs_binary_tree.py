@@ -30,7 +30,7 @@ class BinaryTree:
                 node.right = right
                 queue.append(right)
 
-        if i < len(binary_tree_array) or len(queue) > 0:
+        if i < len(binary_tree_array):
             raise("Not a valid binary tree.")
         
         return root
@@ -68,5 +68,6 @@ print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == 
 
 array = [4,2,7,1,3,6,9]
 print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
-""" l = [1,None,2,None,None,None,4]
-print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(l))) """
+
+# l = [1,None,2,None,None,None,4]
+# print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(l)))
