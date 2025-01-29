@@ -4,11 +4,11 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from complete_binary_tree import BinaryTree
+from complete_binary_tree import TreeNode, BinaryTree
 
 
 class Solution:
-    def maxDepth(self, root: Optional[BinaryTree]) -> int:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
         # Recursion approach
         if root is None:
             return 0

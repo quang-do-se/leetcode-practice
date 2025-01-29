@@ -4,14 +4,14 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from complete_binary_tree import BinaryTree
+from complete_binary_tree import TreeNode, BinaryTree
 
 
 class Solution:
-    def leafSimilar(self, root1: Optional[BinaryTree], root2: Optional[BinaryTree]) -> bool:
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
         return self.find_leaf_nodes(root1) == self.find_leaf_nodes(root2)
 
-    def find_leaf_nodes(self, root: Optional[BinaryTree]) -> List:
+    def find_leaf_nodes(self, root: Optional[TreeNode]) -> List:
         # Iterative approach
         if root is None:
             return []

@@ -1,5 +1,5 @@
 from collections import deque
-from typing import List, Optional, Self
+from typing import List, Optional
 
 
 class TreeNode:

@@ -4,11 +4,11 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from complete_binary_tree import BinaryTree
+from complete_binary_tree import TreeNode, BinaryTree
 
 
 class Solution:
-    def searchBST(self, root: Optional[BinaryTree], val: int) -> Optional[BinaryTree]:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         while root is not None and root.val != val:
             if val < root.val:
                 root = root.left
