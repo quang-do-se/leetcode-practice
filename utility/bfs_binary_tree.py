@@ -18,17 +18,16 @@ class BinaryTree:
 
         while i < len(binary_tree_array) and len(queue) > 0:
             node = queue.popleft()
-            i += 1
-            if i < len(binary_tree_array) and binary_tree_array[i] != None:
-                left = BinaryTree(binary_tree_array[i])
-                node.left = left
-                queue.append(left)
 
             i += 1
-            if i < len(binary_tree_array) and binary_tree_array[i] != None:
-                right = BinaryTree(binary_tree_array[i])
-                node.right = right
-                queue.append(right)
+            if i < len(binary_tree_array) and binary_tree_array[i] is not None:
+                node.left = BinaryTree(binary_tree_array[i])
+                queue.append(node.left)
+
+            i += 1
+            if i < len(binary_tree_array) and binary_tree_array[i] is not None:
+                node.right = BinaryTree(binary_tree_array[i])
+                queue.append(node.right)
 
         if i < len(binary_tree_array):
             raise("Not a valid binary tree.")
@@ -54,14 +53,20 @@ class BinaryTree:
                 result.append(None)
 
         i = len(result) - 1
-        while result[i] == None:
-            result.pop(i)
+        while result[i] is None and i > 0:
+            result.pop()
             i -= 1
 
         return result
 
 
+array = [None]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
 """
+array = [0]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
 array = [1]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
