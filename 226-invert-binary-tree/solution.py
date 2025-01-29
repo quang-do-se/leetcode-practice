@@ -11,9 +11,7 @@ class Solution:
         if root is None:
             return root
 
-        old_left = root.left
-        root.left = self.invertTree(root.right)
-        root.right = self.invertTree(old_left)
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
         return root
 
 

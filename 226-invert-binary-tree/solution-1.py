@@ -17,9 +17,7 @@ class Solution:
         while len(queue) > 0:
             node = queue.popleft()
 
-            old_left = node.left
-            node.left = node.right
-            node.right = old_left
+            node.left, node.right = node.right, node.left
 
             if node.left is not None:
                 queue.append(node.left)
