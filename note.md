@@ -24,13 +24,81 @@ When converting a recursive algorithm to an iterative approach, we typically nee
 
 ## Binary Tree
 
-The maximum number of leaves in a binary tree is `n / 2`​ (for a full binary tree),
-or `2 ^ (log(n) - 1) == 2 ^ log(n) / 2 == n / 2`
-
 Use `stack` for DFS.
 
 Use `queue` for BFS.
 
+### Notes
+
+The root node (which has no parents) has depth 0.
+
+Total number of nodes in a complete binary tree of depth `d`:
+
+```
+n = 2 ^ (d + 1) - 1
+
+=> n + 1 = 2 ^ (d + 1)
+
+=> log (n + 1) = d + 1
+
+=> d = log(n + 1) - 1
+```
+
+The maximum number of nodes in a complete binary tree of depth `d` is:
+```
+2 ^ d
+=> 2 ^ (d + 1 - 1)
+=> 2 ^ (d + 1) / 2
+=> n / 2
+```
+
+### Comparison of Breadth-First Traversal and Complete Binary Tree Deserialization
+
+Consider the following binary tree:
+
+```
+      1
+       \
+        2
+         \
+          3
+           \
+            4
+```
+
+To deserialize this binary tree into an array using two different approaches, we obtain the following results:
+
+Breadth-First Traversal (BFT) Binary Tree:
+`[1,None,2,None,3,None,4]`
+
+Complete Binary Tree:
+`[1,None,2,None,None,None,3,None,None,None,None,None,None,None,4]`
+
+Since the tree has a depth `d` of 3, we can use the geometric sum formula to calculate the total number of nodes in a Complete Binary Tree:
+```
+2 ^ 0 + 2 ^ 1 + 2 ^ 2 + 2 ^ 3
+=> 2 ^ (d + 1) - 1
+=> 2 ^ (3 + 1) - 1
+=> 2 ^ 4 - 1 = 15
+```
+
+For every level below the root node, in a BFT Binary Tree, we need at least two nodes to represent the tree.
+Thus, the total number of nodes in a minimal BFT Binary Tree of depth `d` is calculated as:
+```
+2 * d + 1
+=> 2 * 3 + 1
+=> 2 * 3 + 1 = 7
+```
+
+The difference in the total number of nodes between the two approaches is:
+
+```
+total_nodes_in_complete_binary_tree - total_nodes_in_minimum_bft_binary_tree
+
+=> (2 ^ (d + 1) - 1) - (2 * d + 1)
+=> (2 ^ 4 - 1) - (2 * 3 + 1)
+=> 15 - 7 = 8
+```
 ## Collection
 
 ### Concurrent Modification

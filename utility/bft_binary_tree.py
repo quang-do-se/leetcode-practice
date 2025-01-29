@@ -93,5 +93,3 @@ print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 array = [1,2,3,4,None,5,None,None,None,7]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 """
-
-# array = [1,None,2,None,None,None,3]  # Error
