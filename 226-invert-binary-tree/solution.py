@@ -4,10 +4,10 @@ from typing import Optional
 
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utility"))
 
-from bft_binary_tree import BinaryTree
+from bft_binary_tree import TreeNode, BinaryTree
 
 class Solution:
-    def invertTree(self, root: Optional[BinaryTree]) -> Optional[BinaryTree]:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
             return root
 

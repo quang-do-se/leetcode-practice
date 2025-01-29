@@ -1,33 +1,36 @@
 from collections import deque
 from typing import List, Optional, Self
 
-# Breadth-First Traversal Binary Tree
-class BinaryTree:
+
+class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+
+# Breadth-First Traversal Binary Tree
+class BinaryTree:
     @staticmethod
-    def from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
+    def from_array(binary_tree_array: List[int]) -> Optional[TreeNode]:
         if len(binary_tree_array) == 0:
             return None
 
         i = 0
-        root = BinaryTree(binary_tree_array[i])
+        root = TreeNode(binary_tree_array[i])
         queue = deque([root])
 
-        while queue and i < len(binary_tree_array):
+        while len(queue) > 0 and i < len(binary_tree_array):
             node = queue.popleft()
 
             i += 1
             if i < len(binary_tree_array) and binary_tree_array[i] is not None:
-                node.left = BinaryTree(binary_tree_array[i])
+                node.left = TreeNode(binary_tree_array[i])
                 queue.append(node.left)
 
             i += 1
             if i < len(binary_tree_array) and binary_tree_array[i] is not None:
-                node.right = BinaryTree(binary_tree_array[i])
+                node.right = TreeNode(binary_tree_array[i])
                 queue.append(node.right)
 
         if i < len(binary_tree_array):
@@ -36,14 +39,14 @@ class BinaryTree:
         return root
 
     @staticmethod
-    def to_array(tree: Optional[Self]) -> List:
+    def to_array(tree: Optional[TreeNode]) -> List:
         if tree is None:
             return []
 
         result = []
         queue = deque([tree])
 
-        while queue:
+        while len(queue) > 0:
             node = queue.popleft()
             if node is not None:
                 result.append(node.val)

@@ -2,18 +2,20 @@ from collections import deque
 from typing import List, Optional, Self
 
 
-class BinaryTree:
+class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+
+class BinaryTree:
     @staticmethod
     def from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
         if index > len(binary_tree_array) - 1 or binary_tree_array[index] is None:
             return None
 
-        node = BinaryTree(binary_tree_array[index])
+        node = TreeNode(binary_tree_array[index])
 
         node.left = BinaryTree.from_array(binary_tree_array, index * 2 + 1)
         node.right = BinaryTree.from_array(binary_tree_array, index * 2 + 2)
