@@ -11,11 +11,11 @@ class BinaryTree:
     def generate_from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
         if len(binary_tree_array) == 0:
             return None
-        
+
         i = 0
         root = BinaryTree(binary_tree_array[i])
         queue = deque([root])
-        
+
         while i < len(binary_tree_array) and len(queue) > 0:
             node = queue.popleft()
             i += 1
@@ -32,7 +32,7 @@ class BinaryTree:
 
         if i < len(binary_tree_array):
             raise("Not a valid binary tree.")
-        
+
         return root
 
     @staticmethod
@@ -58,8 +58,9 @@ class BinaryTree:
                 queue.append(node.right)
 
         return result
-    
 
+
+"""
 array = [1]
 print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
 
@@ -68,6 +69,7 @@ print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == 
 
 array = [4,2,7,1,3,6,9]
 print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
+"""
 
 # l = [1,None,2,None,None,None,4]
 # print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(l)))
