@@ -8,7 +8,7 @@ class BinaryTree:
         self.right = right
 
     @staticmethod
-    def generate_from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
+    def from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
         if len(binary_tree_array) == 0:
             return None
 
@@ -36,7 +36,7 @@ class BinaryTree:
         return root
 
     @staticmethod
-    def binary_tree_to_array(tree: Optional[Self]) -> List:
+    def to_array(tree: Optional[Self]) -> List:
         if tree is None:
             return []
 
@@ -60,16 +60,28 @@ class BinaryTree:
         return result
 
 
-"""
 array = [1]
-print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
-array = [1,None,2,None,4]
-print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
+array = [1, 2]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1, 2, None]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1, None, 2]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,None,2,None,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,2,None,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,2,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
 array = [4,2,7,1,3,6,9]
-print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
-"""
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
 # l = [1,None,2,None,None,None,4]
-# print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(l)))

@@ -21,10 +21,10 @@ class Solution:
 sol = Solution()
 
 print(
-        BinaryTree.binary_tree_to_array(sol.searchBST(BinaryTree.generate_from_array([4,2,7,1,3]), 2))
+        BinaryTree.to_array(sol.searchBST(BinaryTree.from_array([4,2,7,1,3]), 2))
         == [2,1,3]
     )
 print(
-        BinaryTree.binary_tree_to_array(sol.searchBST(BinaryTree.generate_from_array([4,2,7,1,3]), 5))
+        BinaryTree.to_array(sol.searchBST(BinaryTree.from_array([4,2,7,1,3]), 5))
         == []
     )

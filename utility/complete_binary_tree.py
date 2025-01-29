@@ -9,19 +9,19 @@ class BinaryTree:
         self.right = right
 
     @staticmethod
-    def generate_from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
+    def from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
         if index > len(binary_tree_array) - 1 or binary_tree_array[index] is None:
             return None
 
         node = BinaryTree(binary_tree_array[index])
 
-        node.left = BinaryTree.generate_from_array(binary_tree_array, index * 2 + 1)
-        node.right = BinaryTree.generate_from_array(binary_tree_array, index * 2 + 2)
+        node.left = BinaryTree.from_array(binary_tree_array, index * 2 + 1)
+        node.right = BinaryTree.from_array(binary_tree_array, index * 2 + 2)
 
         return node
 
     @staticmethod
-    def binary_tree_to_array(tree: Optional[Self]) -> List:
+    def to_array(tree: Optional[Self]) -> List:
         if tree is None:
             return []
 

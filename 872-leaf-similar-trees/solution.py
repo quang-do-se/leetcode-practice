@@ -33,14 +33,14 @@ sol = Solution()
 
 print(
         sol.leafSimilar(
-            BinaryTree.generate_from_array([3,5,1,6,2,9,8,None,None,7,4]),
-            BinaryTree.generate_from_array([3,5,1,6,7,4,2,None,None,None,None,None,None,9,8])
+            BinaryTree.from_array([3,5,1,6,2,9,8,None,None,7,4]),
+            BinaryTree.from_array([3,5,1,6,7,4,2,None,None,None,None,None,None,9,8])
         ) == True
     )
 
 print(
         sol.leafSimilar(
-            BinaryTree.generate_from_array([1,2,3]),
-            BinaryTree.generate_from_array([1,3,2])
+            BinaryTree.from_array([1,2,3]),
+            BinaryTree.from_array([1,3,2])
         ) == False
     )

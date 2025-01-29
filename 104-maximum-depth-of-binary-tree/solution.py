@@ -17,7 +17,7 @@ class Solution:
 
 
 sol = Solution()
-print(sol.maxDepth(BinaryTree.generate_from_array([3,9,20,None,None,15,7])) == 3)
-print(sol.maxDepth(BinaryTree.generate_from_array([1,None,2])) == 2)
-print(sol.maxDepth(BinaryTree.generate_from_array([])) == 0)
-print(sol.maxDepth(BinaryTree.generate_from_array([1])) == 1)
+print(sol.maxDepth(BinaryTree.from_array([3,9,20,None,None,15,7])) == 3)
+print(sol.maxDepth(BinaryTree.from_array([1,None,2])) == 2)
+print(sol.maxDepth(BinaryTree.from_array([])) == 0)
+print(sol.maxDepth(BinaryTree.from_array([1])) == 1)
