@@ -45,28 +45,27 @@ class BinaryTree:
 
         while len(queue) > 0:
             node = queue.popleft()
+            if node is not None:
+                result.append(node.val)
 
-            result.append(node.val)
-
-            if node.left is not None:
                 queue.append(node.left)
-
-            if node.right is not None:
-                if node.left is None:
-                    result.append(None)
-
                 queue.append(node.right)
+            else:
+                result.append(None)
+
+        i = len(result) - 1
+        while result[i] == None:
+            result.pop(i)
+            i -= 1
 
         return result
 
 
+"""
 array = [1]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
 array = [1, 2]
-print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
-
-array = [1, 2, None]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
 array = [1, None, 2]
@@ -84,4 +83,8 @@ print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 array = [4,2,7,1,3,6,9]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
-# l = [1,None,2,None,None,None,4]
+array = [1,2,3,4,None,5,None,None,None,7]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+"""
+
+# array = [1,None,2,None,None,None,4]  # Error

@@ -22,9 +22,5 @@ print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([4,2,7,1,3,6,9]))
 print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([2,1,3]))) == [2,3,1])
 print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([]))) == [])
 print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([1, 2]))) == [1, None, 2])
-print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([1, 2, None, 4]))) == [1,None,2,None,None,None,4])
+print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([1, 2, None, 4]))) == [1,None,2,None,4])
 print(BinaryTree.to_array(sol.invertTree(BinaryTree.from_array([1,None,2,None,4]))) == [1, 2, None, 4])
-node = sol.invertTree(BinaryTree.from_array([1,None,2,None,4]))
-
-print(BinaryTree.to_array(node))
-""" print(BinaryTree.binary_tree_to_array(sol.invertTree(BinaryTree.generate_from_array([0,None,2,None,None,5,6]))) == [0, 2, None, 6, 5]) """
