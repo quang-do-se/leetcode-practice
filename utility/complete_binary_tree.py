@@ -11,16 +11,27 @@ class TreeNode:
 
 class BinaryTree:
     @staticmethod
-    def from_array(binary_tree_array: List[int], index = 0) -> Optional[Self]:
-        if index > len(binary_tree_array) - 1 or binary_tree_array[index] is None:
+    def from_array(binary_tree_array: List[int]) -> Optional[Self]:
+        if len(binary_tree_array) == 0 or binary_tree_array[0] is None:
             return None
 
-        node = TreeNode(binary_tree_array[index])
+        root = TreeNode(binary_tree_array[0])
+        queue = deque([(root, 0)])
 
-        node.left = BinaryTree.from_array(binary_tree_array, index * 2 + 1)
-        node.right = BinaryTree.from_array(binary_tree_array, index * 2 + 2)
+        while len(queue) > 0:
+            node, index = queue.popleft()
 
-        return node
+            left_index = index * 2 + 1
+            if left_index < len(binary_tree_array) and binary_tree_array[left_index] is not None:
+                node.left = TreeNode(binary_tree_array[left_index])
+                queue.append((node.left, left_index))
+
+            right_index = index * 2 + 2
+            if right_index < len(binary_tree_array) and binary_tree_array[right_index] is not None:
+                node.right = TreeNode(binary_tree_array[right_index])
+                queue.append((node.right, right_index))
+
+        return root
 
     @staticmethod
     def to_array(tree: Optional[Self]) -> List:
@@ -46,3 +57,40 @@ class BinaryTree:
                 queue.append((node.right, index * 2 + 2))
 
         return result
+
+
+
+array = [None]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == [])
+
+array = [0]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1, 2]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1, None, 2]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,None,2,None,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == [1,None,2])
+
+
+array = [1,2,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,2,None,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,None,2,None,None,None,3]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+
+array = [4,2,7,1,3,6,9]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
+
+array = [1,2,3,4,None,5,None,None,None,7]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == [1,2,3,4,None,5])

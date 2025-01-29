@@ -10,10 +10,11 @@ class TreeNode:
 
 
 # Breadth-First Traversal Binary Tree
+# Ref: https://stackoverflow.com/questions/71420248/how-to-draw-the-binary-tree-for-this-input-1-2-2-3-null-null-3-4-null-null-4
 class BinaryTree:
     @staticmethod
     def from_array(binary_tree_array: List[int]) -> Optional[TreeNode]:
-        if len(binary_tree_array) == 0:
+        if len(binary_tree_array) == 0 or binary_tree_array[0] is None:
             return None
 
         i = 0
@@ -55,13 +56,16 @@ class BinaryTree:
             else:
                 result.append(None)
 
-        while result and result[-1] is None:
+        while len(result) > 0 and result[-1] is None:
             result.pop()
 
         return result
 
 
 """
+array = [None]
+print(BinaryTree.to_array(BinaryTree.from_array(array)) == [])
+
 array = [0]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 
