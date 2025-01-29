@@ -1,6 +1,7 @@
 from collections import deque
 from typing import List, Optional, Self
 
+# Breadth-First Traversal Binary Tree
 class BinaryTree:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -46,16 +47,13 @@ class BinaryTree:
             node = queue.popleft()
             if node is not None:
                 result.append(node.val)
-
                 queue.append(node.left)
                 queue.append(node.right)
             else:
                 result.append(None)
 
-        i = len(result) - 1
-        while result[i] is None and i > 0:
+        while result and result[-1] is None:
             result.pop()
-            i -= 1
 
         return result
 
