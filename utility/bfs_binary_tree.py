@@ -41,28 +41,32 @@ class BinaryTree:
             return []
 
         result = []
-
-        queue = deque([(tree, 0)])
+        queue = deque([tree])
 
         while len(queue) > 0:
-            node, index = queue.popleft()
+            node = queue.popleft()
 
-            # Ensure the result list is large enough
-            if index >= len(result):
-                result.extend([None] * (index - len(result) + 1))
-
-            result[index] = node.val
+            result.append(node.val)
 
             if node.left is not None:
-                queue.append((node.left, index * 2 + 1))
+                queue.append(node.left)
+
             if node.right is not None:
-                queue.append((node.right, index * 2 + 2))
+                if node.left is None:
+                    result.append(None)
+
+                queue.append(node.right)
 
         return result
     
 
-l = [1,None,2,None,4]
-print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(l)))
+array = [1]
+print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
 
+array = [1,None,2,None,4]
+print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
+
+array = [4,2,7,1,3,6,9]
+print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(array)) == array)
 """ l = [1,None,2,None,None,None,4]
 print(BinaryTree.binary_tree_to_array(BinaryTree.generate_from_array(l))) """
