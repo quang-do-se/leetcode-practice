@@ -134,3 +134,9 @@ for i in range(len(nums) - 1, -1, -1):
 
 print(nums)  # Output: []
 ```
+
+
+## Python Gotchas
+
+- https://docs.python-guide.org/writing/gotchas/
+  - Try to avoid using `mutable default arguments`
