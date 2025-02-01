@@ -139,4 +139,4 @@ print(nums)  # Output: []
 ## Python Gotchas
 
 - https://docs.python-guide.org/writing/gotchas/
-  - Try to avoid using `mutable default arguments`
+  - Try to avoid using `mutable default arguments` like `list` or `dict`
