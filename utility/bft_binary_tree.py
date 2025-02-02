@@ -62,6 +62,40 @@ class BinaryTree:
         return result
 
 
+    @staticmethod
+    def visualize(tree: Optional[TreeNode]) -> List:
+        if tree is None:
+            return []
+
+        result = []
+        stack = deque([(tree, False)])
+
+        while len(stack) > 0:
+            node, visited = stack.pop()
+            
+            if node.left is None and node.right is None:
+                result.append(node.val)
+                continue
+
+            if not visited:
+                if node.right is not None:
+                    stack.append((node.right, False))
+
+                stack.append((node, True))
+
+                if node.left is not None:
+                    stack.append((node.left, False))
+            else:
+                result.append(node.val)
+        
+        return result
+
+
+
+
+array = [0,1,2,3,4,5,6,None,None,7]
+print(BinaryTree.visualize(BinaryTree.from_array(array)))
+
 """
 array = [None]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == [])
