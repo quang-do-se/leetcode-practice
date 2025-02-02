@@ -80,7 +80,7 @@ class BinaryTree:
                     print_map[row] = [(col, node.val)]
                 else:
                     print_map[row].append((col, node.val))
-                col += 1 + 2
+                col += 1 + 2   # length of num + buffer length
                 continue
 
             if not visited:
@@ -96,15 +96,25 @@ class BinaryTree:
                     print_map[row] = [(col, node.val)]
                 else:
                     print_map[row].append((col, node.val))
-                col += 1 + 2
+                col += 1 + 2   # length of num + buffer length
         
-        return print_map
+
+        for row in range(len(print_map)):
+            position = 0
+            for (col, val) in print_map[row]:
+                while position < col:
+                    print(" ", end="")
+                    position += 1
+                print(val, end="")
+                position += 1
+            print()
+                
 
 
 
 
 array = [0,1,2,3,4,5,6,None,None,7]
-print(BinaryTree.visualize(BinaryTree.from_array(array)))
+BinaryTree.visualize(BinaryTree.from_array(array))
 
 """
 array = [None]
