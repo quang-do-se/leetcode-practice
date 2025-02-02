@@ -140,3 +140,8 @@ print(nums)  # Output: []
 
 - https://docs.python-guide.org/writing/gotchas/
   - Try to avoid using `mutable default arguments` like `list` or `dict`
+
+
+## Time Complexity
+
+- When dividing an integer `x` by `y`, there can be at most `O(logarithm base y of x)` divisions.
