@@ -68,27 +68,37 @@ class BinaryTree:
             return []
 
         result = []
-        stack = deque([(tree, False)])
+        stack = deque([(tree, False, 0)])
+        col = 0
+        print_map = {}   # change it to Array?
 
         while len(stack) > 0:
-            node, visited = stack.pop()
+            node, visited, row = stack.pop()
             
             if node.left is None and node.right is None:
-                result.append(node.val)
+                if row not in print_map:
+                    print_map[row] = [(col, node.val)]
+                else:
+                    print_map[row].append((col, node.val))
+                col += 1 + 2
                 continue
 
             if not visited:
                 if node.right is not None:
-                    stack.append((node.right, False))
+                    stack.append((node.right, False, row + 1))
 
-                stack.append((node, True))
+                stack.append((node, True, row))
 
                 if node.left is not None:
-                    stack.append((node.left, False))
+                    stack.append((node.left, False, row + 1))
             else:
-                result.append(node.val)
+                if row not in print_map:
+                    print_map[row] = [(col, node.val)]
+                else:
+                    print_map[row].append((col, node.val))
+                col += 1 + 2
         
-        return result
+        return print_map
 
 
 
