@@ -135,10 +135,10 @@ class BinaryTree:
             print("".join(print_line[level]))
 
 
+"""
 array = [0,1,2,3,45555555555,5,6,7,None,4,7]
 BinaryTree.visualize(BinaryTree.from_array(array))
 
-"""
 array = [0,1,2,3,4,5,6,7,None,4,7]
 BinaryTree.visualize(BinaryTree.from_array(array))
 array = [0,1]
