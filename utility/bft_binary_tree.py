@@ -7,6 +7,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+        self.col = 0
+        self.row = 0
 
 
 # Breadth-First Traversal Binary Tree
@@ -67,20 +69,17 @@ class BinaryTree:
         if tree is None:
             return []
 
-        result = []
         stack = deque([(tree, False, 0)])
         col = 0
-        print_map = {}   # change it to Array?
+        buffer_length = 4
 
         while len(stack) > 0:
             node, visited, row = stack.pop()
-            
+
             if node.left is None and node.right is None:
-                if row not in print_map:
-                    print_map[row] = [(col, node.val)]
-                else:
-                    print_map[row].append((col, node.val))
-                col += 1 + 2   # length of num + buffer length
+                node.col = col
+                node.row = row
+                col += 1 + buffer_length   # length of num + buffer length
                 continue
 
             if not visited:
@@ -92,28 +91,47 @@ class BinaryTree:
                 if node.left is not None:
                     stack.append((node.left, False, row + 1))
             else:
-                if row not in print_map:
-                    print_map[row] = [(col, node.val)]
-                else:
-                    print_map[row].append((col, node.val))
-                col += 1 + 2   # length of num + buffer length
-        
+                node.col = col
+                node.row = row
+                col += 1 + buffer_length   # length of num + buffer length
 
-        for row in range(len(print_map)):
-            position = 0
-            for (col, val) in print_map[row]:
-                while position < col:
-                    print(" ", end="")
-                    position += 1
-                print(val, end="")
-                position += 1
-            print()
-                
+        queue = deque([tree])
+        print_row = {}
+        print_line = {}
 
+        while len(queue) > 0:
+            node = queue.popleft()
 
+            if node.row not in print_row:
+                print_row[node.row] = []
 
+            while len(print_row[node.row]) < node.col:
+                print_row[node.row].append(" ")
+            print_row[node.row].append(str(node.val))
 
-array = [0,1,2,3,4,5,6,None,None,7]
+            if node.row not in print_line:
+                print_line[node.row] = []
+
+            if node.left is not None:
+                while len(print_line[node.row]) < node.left.col:
+                    print_line[node.row].append(" ")
+                while len(print_line[node.row]) < node.col:
+                    print_line[node.row].append("_")
+                queue.append(node.left)
+
+            if node.right is not None:
+                while len(print_line[node.row]) < node.right.col:
+                    print_line[node.row].append("_")
+                queue.append(node.right)
+
+            if len(print_line[node.row]) > 0:
+                print_line[node.row][node.col] = "|"
+
+        for i in range(len(print_row)):
+            print("".join(print_row[i]))
+            print("".join(print_line[i]))
+
+array = [0,1,2,3,4,5,6,7,None,4,7]
 BinaryTree.visualize(BinaryTree.from_array(array))
 
 """
