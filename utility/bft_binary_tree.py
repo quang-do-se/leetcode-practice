@@ -115,24 +115,33 @@ class BinaryTree:
             if node.left is not None:
                 while len(print_line[node.row]) < node.left.col:
                     print_line[node.row].append(" ")
-                while len(print_line[node.row]) < node.col:
+                while len(print_line[node.row]) <= node.col:
                     print_line[node.row].append("_")
+                print_line[node.row][node.col] = "|"
                 queue.append(node.left)
 
             if node.right is not None:
-                while len(print_line[node.row]) < node.right.col:
+                while len(print_line[node.row]) <= node.right.col:
                     print_line[node.row].append("_")
-                queue.append(node.right)
-
-            if len(print_line[node.row]) > 0:
                 print_line[node.row][node.col] = "|"
+                queue.append(node.right)
 
         for i in range(len(print_row)):
             print("".join(print_row[i]))
             print("".join(print_line[i]))
 
+"""
 array = [0,1,2,3,4,5,6,7,None,4,7]
 BinaryTree.visualize(BinaryTree.from_array(array))
+array = [0,1]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = [0,None,1]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = [0]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = []
+BinaryTree.visualize(BinaryTree.from_array(array))
+"""
 
 """
 array = [None]
