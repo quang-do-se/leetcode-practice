@@ -79,7 +79,7 @@ class BinaryTree:
             if node.left is None and node.right is None:
                 node.col = col
                 node.row = row
-                col += 1 + buffer_length   # length of num + buffer length
+                col += len(str(node.val)) + buffer_length   # length of num + buffer length
                 continue
 
             if not visited:
@@ -93,10 +93,11 @@ class BinaryTree:
             else:
                 node.col = col
                 node.row = row
-                col += 1 + buffer_length   # length of num + buffer length
+                col += len(str(node.val)) + buffer_length   # length of num + buffer length
 
         queue = deque([tree])
-        print_row = {}
+        row_length = {}
+        print_row =  {}
         print_line = {}
 
         while len(queue) > 0:
@@ -104,10 +105,13 @@ class BinaryTree:
 
             if node.row not in print_row:
                 print_row[node.row] = []
+                row_length[node.row] = 0
 
-            while len(print_row[node.row]) < node.col:
-                print_row[node.row].append(" ")
-            print_row[node.row].append(str(node.val))
+            print_row[node.row].append(" " * (node.col - row_length[node.row]))
+            row_length[node.row] += node.col - row_length[node.row]
+            node_val_str = str(node.val)
+            print_row[node.row].append(node_val_str)
+            row_length[node.row] += len(node_val_str)
 
             if node.row not in print_line:
                 print_line[node.row] = []
@@ -126,9 +130,13 @@ class BinaryTree:
                 print_line[node.row][node.col] = "|"
                 queue.append(node.right)
 
-        for i in range(len(print_row)):
-            print("".join(print_row[i]))
-            print("".join(print_line[i]))
+        for level in range(len(print_row)):
+            print("".join(print_row[level]))
+            print("".join(print_line[level]))
+
+
+array = [0,1,2,3,45555555555,5,6,7,None,4,7]
+BinaryTree.visualize(BinaryTree.from_array(array))
 
 """
 array = [0,1,2,3,4,5,6,7,None,4,7]
