@@ -1,28 +1,16 @@
-from collections import deque
 from typing import List
 
 
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:
-        # Faster but more space
-        dup_count = 0
-        hold = deque()
-
+        # Brute force
         i = 0
-        while i < len(arr):
-            if dup_count > 0:
-                hold.append(arr[i])
-                arr[i] = 0
-                dup_count -= 1
-                i += 1
-                continue
-
-            if hold:
-                hold.append(arr[i])
-                arr[i] = hold.popleft()
-
+        while i < len(arr) - 1:
             if arr[i] == 0:
-                dup_count += 1
+                for j in range(len(arr) - 1, i, -1):
+                    arr[j] = arr[j - 1]
+                arr[i + 1] = 0
+                i += 1
             i += 1
 
 
