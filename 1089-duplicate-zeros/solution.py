@@ -8,18 +8,21 @@ class Solution:
         hold = deque()
 
         i = 0
-        while i < len(arr):
+        while i < len(arr) - 1:
             if hold:
                 hold.append(arr[i])
                 arr[i] = hold.popleft()
 
             if arr[i] == 0:
-                if i + 1 < len(arr):
-                    hold.append(arr[i + 1])
-                    arr[i + 1] = 0
+                hold.append(arr[i + 1])
+                arr[i + 1] = 0
                 i += 1
                 
             i += 1
+
+        # Write the last non-zero element
+        if i < len(arr) and hold:
+            arr[i] = hold.popleft()
 
 
 
