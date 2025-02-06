@@ -26,7 +26,7 @@ class Solution:
             if arr[last_index] == 0:
                 arr[new_index] = 0
 
-                # Don't duplicate the last 0
+                # Only duplicate 0 before the last element since there is no space if 0 is the last element
                 if last_index + zero_count - 1 < len(arr) - 1:
                     new_index -= 1
                     arr[new_index] = 0
