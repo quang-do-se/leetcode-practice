@@ -21,16 +21,13 @@ class Solution:
 
 sol = Solution()
 
-""" arr = [1,0,2,3,0,4,5,0]
+arr = [1,0,2,3,0,4,5,0]
 sol.duplicateZeros(arr)
-print(arr == [1, 0, 0, 2, 3, 0, 0, 4]) """
-
+print(arr == [1, 0, 0, 2, 3, 0, 0, 4])
 
 arr = [0,2,0,0,5,0]
 sol.duplicateZeros(arr)
-print(arr)
 print(arr == [0, 0, 2, 0, 0, 0])
-
 
 arr = [0,0,0]
 sol.duplicateZeros(arr)
@@ -48,20 +45,14 @@ arr = [0]
 sol.duplicateZeros(arr)
 print(arr == [0])
 
-
 arr = [1,5,2,0,6,8,0,6,0]
 sol.duplicateZeros(arr)
-print(arr)
 print(arr == [1,5,2,0,0,6,8,0,0])
-
 
 arr = [1,2,0,3]
 sol.duplicateZeros(arr)
-print(arr)
 print(arr == [1,2,0,0])
-
 
 arr = [1,2,0]
 sol.duplicateZeros(arr)
-print(arr)
 print(arr == [1,2,0])
