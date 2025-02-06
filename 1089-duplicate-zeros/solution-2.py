@@ -13,7 +13,7 @@ class Solution:
                 arr[i + zeroes] = arr[i]
 
             # Write the duplicate zero
-            if arr[i] == 0: 
+            if arr[i] == 0:
                 zeroes -= 1
                 if i + zeroes < n:
                     arr[i + zeroes] = 0
@@ -26,7 +26,7 @@ class Solution:
 Let's say we have this array:
 [0,2,0,0,5,0]
 
-It has 4 zeros in the original array. 
+It has 4 zeros in the original array.
 Each zero causes a shift to the right for subsequent elements.
 The new expanded array will be (O means a duplicate 0):
 
@@ -72,10 +72,10 @@ number_of_zero = 2
 org[2] = 0:
     The new position is 2 + 2 = 4
     Does index 4 fit in the original array? Yes, write it to index 4
-Result: [0,2,0,0,0,0]    
+Result: [0,2,0,0,0,0]
     Is it a zero? Yes, since it's a zero, we know the padding zero is just before this original zero
     We can get the padding zero index by 2 + (2 - 1) = 3 and we can reduce the number of zero to 1 in the same step
-    Does the padding zero index 3 fit in the original array? Yes, write it to index 3    
+    Does the padding zero index 3 fit in the original array? Yes, write it to index 3
 Result: [0,2,0,0,0,0]
 
 number_of_zero = 1
