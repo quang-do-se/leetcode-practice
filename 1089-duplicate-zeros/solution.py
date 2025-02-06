@@ -5,25 +5,15 @@ from typing import List
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:
         # Faster but more space
-        hold = deque()
+        queue = deque()
 
-        i = 0
-        while i < len(arr) - 1:
-            if hold:
-                hold.append(arr[i])
-                arr[i] = hold.popleft()
+        for i in range(len(arr)):
+            queue.append(arr[i])
 
             if arr[i] == 0:
-                hold.append(arr[i + 1])
-                arr[i + 1] = 0
-                i += 1
-                
-            i += 1
-
-        # Write the last non-zero element
-        if i < len(arr) and hold:
-            arr[i] = hold.popleft()
-
+                queue.append(0)
+            
+            arr[i] = queue.popleft()
 
 
 sol = Solution()
