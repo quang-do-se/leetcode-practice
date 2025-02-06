@@ -94,6 +94,10 @@ Result: [0,0,2,0,0,0]
     We can get the padding zero index by 0 + (1 - 1) = 0 and we can reduce the number of zero to 0 in the same step
     Does the padding zero index 0 fit in the original array? Yes, write it to index 0
 Result: [0,0,2,0,0,0]
+
+## Optimization
+We can slightly optimize this by stopping the loop when zeroes reaches 0.
+
 """
 
 sol = Solution()
