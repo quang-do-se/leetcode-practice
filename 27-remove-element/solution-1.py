@@ -11,7 +11,7 @@ class Solution:
                 nums[l], nums[r] = nums[r], nums[l]
             else:
                 l += 1
-        print(f"l: {l}, r: {r}")
+
         return l
 
 
