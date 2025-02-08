@@ -10,7 +10,7 @@ class Solution:
                 nums[w] = prev = nums[r]
                 w += 1
         return w
-    
+
 
 sol = Solution()
 nums = [0,0,1,1,1,2,2,3,3,4]

@@ -14,7 +14,7 @@ class Solution:
                 write_index += 1
 
         return write_index
-    
+
 
 sol = Solution()
 nums = [0,0,1,1,1,2,2,3,3,4]
