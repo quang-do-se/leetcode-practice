@@ -7,29 +7,29 @@ class Solution:
         Removes all occurrences of `val` from `nums` in-place and returns the new length.
 
         This algorithm uses a two-pointer approach:
-        - `l` (left pointer) scans the array from the beginning.
-        - `r` (right pointer) represents the effective length of the array (excluding removed elements).
+        - `i` is a pointer for writing the correct elements, starting from the beginning
+        - `n` represents the effective length of the array (excluding removed elements).
 
         The swapping mechanism:
-        - When `nums[l] == val`, we swap `nums[l]` with `nums[r - 1]` since `r - 1` is the the last index of the array of length `r`.
-        - After the swap, decrease `r` to exclude the swapped value.
-        - This effectively removes `val` from the valid portion of the array of length `r`.
-        - If `nums[l]` does not match `val`, we simply advance `l`.
+        - When `nums[i] == val`, we swap `nums[i]` with `nums[n - 1]` since `n - 1` is the the last index of the array of length `n`.
+        - After the swap, decrease `n` to exclude the swapped value.
+        - This effectively removes `val` from the valid portion of the array of length `n`.
+        - If `nums[i]` does not match `val`, we simply advance `i`.
 
-        The process continues until the left pointer `l` meets or exceeds the right pointer `r`. 
-        At this point, `l` or `r` represents the new length of the list, which excludes all occurrences of `val`.
+        The process continues until the left pointer `i` meets or exceeds the right pointer `n`. 
+        At this point, `i` or `n` represents the new length of the list, which excludes all occurrences of `val`.
         """
 
-        l = 0
-        r = len(nums)
-        while l < r:
-            if nums[l] == val:
-                nums[l], nums[r - 1] = nums[r - 1], nums[l]
-                r -= 1
+        i = 0
+        n = len(nums)
+        while i < n:
+            if nums[i] == val:
+                nums[i], nums[n - 1] = nums[n - 1], nums[i]
+                n -= 1
             else:
-                l += 1
+                i += 1
 
-        return l
+        return i
 
 
 sol = Solution()
