@@ -14,7 +14,7 @@ class Solution:
         The swapping mechanism:
         - When `nums[i] == val`, decrement `n` (shrinking the valid portion of the array) to leave space for swapping the `val` out of the array
         - Check if the new space with index `n` equals to the `value`
-        - If `nums[n] == val`,  continue decrementing `n` until until `nums[n] != val` or `n <= i`
+        - If `nums[n] == val`, continue decrementing `n` until until `nums[n] != val` or `n <= i`
         - At this point, element at index `n` is not `val` and is ready for swapping
         - We then swap `nums[i]` with `nums[n]`
         - This effectively removes `val` from the valid portion of the array of length `n`.
