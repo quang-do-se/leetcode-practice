@@ -12,12 +12,11 @@ class Solution:
         - `n` represents the effective length of the array (excluding removed elements).
 
         The swapping mechanism:
-        - When `nums[i] == val`, decrement `n` (shrinking the valid portion of the array) to leave space for swapping the `val` out of the array
-        - Check if the new space with index `n` equals to the `value`
-        - If `nums[n] == val`, continue decrementing `n` until until `nums[n] != val` or `i >= n`
-        - At this point, element at index `n` is not `val` and is ready for swapping
-        - We then swap `nums[i]` with `nums[n]`
-        - This effectively removes `val` from the valid portion of the array of length `n`.
+        - If `nums[i] == val`, decrement `n` to shrink the valid portion of the array, making room to move val out.
+        - Check if `nums[n] == val`. If so, continue decrementing `n` until `nums[n] != val` or `i >= n`.
+        - Once `nums[n]` is a valid element (not `val`) and is outside the valid portion of length `n`, it is ready for swapping.
+        - Swap `nums[i] == val` with `nums[n]`, effectively moving `val` out of the valid portion of length `n`.
+        - This ensures all occurrences of `val` are removed from the first `n` elements of the array.
 
         - If `nums[i]` does not match `val`, simply move `i` forward.
 
