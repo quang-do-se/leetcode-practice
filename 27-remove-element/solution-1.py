@@ -4,19 +4,14 @@ from typing import List
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         l = 0
-        r = len(nums) - 1
-        while l <= r:
+        r = len(nums)
+        while l < r:
             if nums[l] == val:
-                while nums[r] == val and r >= 0:
-                    r -= 1
-
-                if r > l:
-                    nums[l], nums[r] = nums[r], nums[l]
-                else:
-                    break
-
-            l += 1
-
+                r -= 1
+                nums[l], nums[r] = nums[r], nums[l]
+            else:
+                l += 1
+        print(f"l: {l}, r: {r}")
         return l
 
 
