@@ -3,22 +3,47 @@ from typing import List
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        l = 0
-        r = len(nums)
-        while l < r:
-            if nums[l] == val:
-                r -= 1
-                while nums[r] == val and r > l:
-                    r -= 1
+        """
+        Removes all occurrences of `val` from `nums` in-place and returns the new length.
 
-                nums[l], nums[r] = nums[r], nums[l]
+        This algorithm uses a two-pointer approach:
+        - `i` serves as the write pointer, iterating through the array.
+            - Elements before `i` are in correct position
+        - `n` represents the effective length of the array (excluding removed elements).
+
+        The swapping mechanism:
+        - When `nums[i] == val`, decrement `n` (shrinking the valid portion of the array) to leave space for swapping the `val` out of the array
+        - Check if the new space with index `n` equals to the `value`
+        - If `nums[n] == val`,  continue decrementing `n` until until `nums[n] != val` or `n <= i`
+        - At this point, element at index `n` is not `val` and is ready for swapping
+        - We then swap `nums[i]` with `nums[n]`
+        - This effectively removes `val` from the valid portion of the array of length `n`.
+
+        - If `nums[i]` does not match `val`, simply move `i` forward.
+
+        The process continues until the left pointer `i` meets or exceeds the right pointer `n`.
+        At this point, `i` or `n` represents the new length of the list, which excludes all occurrences of `val`.
+        """
+        i = 0
+        n = len(nums)
+        while i < n:
+            if nums[i] == val:
+                n -= 1
+                while nums[n] == val and n > i:
+                    n -= 1
+
+                nums[i], nums[n] = nums[n], nums[i]
             else:
-                l += 1
+                i += 1
 
-        return l
+        return i
 
 
 sol = Solution()
+
+nums = [0, 1, 2, 3, 4, 2]
+print(sol.removeElement(nums, 2) == 4)
+print(nums)
 
 nums = [4, 5]
 print(sol.removeElement(nums, 5) == 1)
