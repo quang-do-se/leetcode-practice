@@ -3,16 +3,27 @@ from typing import List
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        r = w = 0
+        l = 0
+        r = len(nums)
+        while l < r:
+            if nums[l] == val:
+                r -= 1
+                while nums[r] == val and r > l:
+                    r -= 1
 
-        for r in range(len(nums)):
-            if nums[r] != val:
-                nums[w] = nums[r]
-                w += 1
-        return w
+                nums[l], nums[r] = nums[r], nums[l]
+            else:
+                l += 1
+
+        return l
 
 
 sol = Solution()
+
+nums = [4, 5]
+print(sol.removeElement(nums, 5) == 1)
+print(nums)
+
 nums = [3, 3]
 print(sol.removeElement(nums, 3) == 0)
 print(nums)
