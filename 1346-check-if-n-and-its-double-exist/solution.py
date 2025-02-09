@@ -5,14 +5,10 @@ class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
         map = {}
         for e in arr:
-            if e in map:
-                map[e] += 1
-            else:
-                map[e] = 1
+            map[e] = map.get(e, 0) + 1
 
         for e in arr:
-            de = e * 2
-            if de in map:
+            if e * 2 in map:
                 if e == 0 and map[e] == 1:
                     continue
                 return True
