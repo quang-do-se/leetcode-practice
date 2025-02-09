@@ -4,11 +4,19 @@
 
 - Consider if string is empty
 
+# Number
+
+- Always check the number constraints
+- Check case == 0
+
+## Array
+
+- Whenever you're trying to solve an array problem in place, always consider the possibility of iterating backwards instead of forwards through the array. It can completely change the problem, and make it a lot easier.
+
 ## Two pointers
 
 - Consider if index can be out of bound for either pointer
-
-- Whenever you're trying to solve an array problem in place, always consider the possibility of iterating backwards instead of forwards through the array. It can completely change the problem, and make it a lot easier.
+- If two pointers move in opposite direction, make sure the algorithm can stop correctly
 
 ## Identity vs Equality
 
