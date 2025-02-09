@@ -1,10 +1,12 @@
 # Edge Cases
 
+Always read the constraints.
+
 ## String
 
 - Consider if string is empty
 
-# Number
+## Number
 
 - Always check the number constraints
 - Check case == 0
