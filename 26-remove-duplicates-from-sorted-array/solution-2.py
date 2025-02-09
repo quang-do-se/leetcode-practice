@@ -3,14 +3,16 @@ from typing import List
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        w = 0
+        write = 0
 
-        for r in range(0, len(nums)):
-            if r == 0 or nums[r] != nums[w - 1]:  # Compare read element with last written element
-                nums[w] = nums[r]
-                w += 1
+        for read in range(0, len(nums)):
+            # An element should be counted as unique 
+            # if it's the first element in the Array, or is different to the one before it (last written element).
+            if read == 0 or nums[read] != nums[write - 1]:
+                nums[write] = nums[read]
+                write += 1
 
-        return w
+        return write
 
 
 sol = Solution()
