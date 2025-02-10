@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
-        # snowballing algorithm: https://leetcode.com/problems/move-zeroes/solutions/172432/the-easiest-but-unusual-snowball-java-solution-beats-100-o-n-clear-explanation/
+        # snowball algorithm: https://leetcode.com/problems/move-zeroes/solutions/172432/the-easiest-but-unusual-snowball-java-solution-beats-100-o-n-clear-explanation/
         snowball = 0
         i = 0
         while i < len(nums):
