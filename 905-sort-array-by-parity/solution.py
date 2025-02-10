@@ -17,5 +17,7 @@ class Solution:
 
 
 sol = Solution()
-print(sol.sortArrayByParity([3,1,2,4]) == [2,4,3,1])
+print(sol.sortArrayByParity([3,1,2,5,4]) == [2, 4, 3, 5, 1])  # Non stable
+print(sol.sortArrayByParity([3,2,4]) == [2,4,3])
+print(sol.sortArrayByParity([3,5,2,4,6,8]) == [2, 4, 6, 8, 3, 5])
 print(sol.sortArrayByParity([0]) == [0])
