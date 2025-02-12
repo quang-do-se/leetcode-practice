@@ -157,3 +157,8 @@ print(nums)  # Output: []
 ## Time Complexity
 
 - When dividing an integer `x` by `y`, there can be at most `O(logarithm base y of x)` divisions.
+
+
+## Tips
+
+- In problems where we have to find kth largest/smallest number, we can always start by using any one of these three methods: sorting the array, using a priority queue, or using a sorted set. As these three methods keep array elements in sorted order and it's easy to find the required element.
