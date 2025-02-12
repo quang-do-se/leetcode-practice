@@ -13,11 +13,11 @@ class Solution:
                 curr_one_count += 1
             else:
                 if curr_one_count > 0:
-                    extend_one_count = curr_one_count + 1
+                    expand_one_count = curr_one_count + 1
                     if zero_count == 1:
-                        extend_one_count = curr_one_count + prev_one_count + 1
+                        expand_one_count = expand_one_count + prev_one_count
 
-                    max_one_count = max(extend_one_count, max_one_count)
+                    max_one_count = max(expand_one_count, max_one_count)
 
                     prev_one_count = curr_one_count
                     curr_one_count = 0
@@ -25,13 +25,14 @@ class Solution:
                 else:
                     zero_count += 1
 
-        
         if zero_count == 0:
             return curr_one_count
-        elif zero_count == 1:
-            max_one_count = max(curr_one_count + prev_one_count + 1, max_one_count)
-        else:
-            max_one_count = max(curr_one_count + 1, max_one_count)
+        elif zero_count > 0:
+            expand_one_count = curr_one_count + 1
+            if zero_count == 1:
+                expand_one_count = expand_one_count + prev_one_count
+
+            max_one_count = max(expand_one_count, max_one_count)
 
         return max_one_count
 
