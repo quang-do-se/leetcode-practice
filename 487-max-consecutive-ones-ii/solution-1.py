@@ -7,12 +7,17 @@ class Solution:
         curr = prev = is_zero_seen = 0
 
         for e in nums:
-            if e == 0:
+            if e == 0:   # Update for every zero
                 is_zero_seen = 1
+
+                if curr > 0:
+                    max_ones = max(max_ones, curr + prev + is_zero_seen)
+
                 prev, curr = curr, 0
             else:
                 curr += 1
-            max_ones = max(max_ones, curr + prev + is_zero_seen)
+        
+        max_ones = max(max_ones, curr + prev + is_zero_seen)
         
         return max_ones
 

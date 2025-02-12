@@ -15,7 +15,7 @@ class Solution:
                 if curr_one_count > 0:
                     expand_one_count = curr_one_count + 1
                     if zero_count == 1:
-                        expand_one_count = expand_one_count + prev_one_count
+                        expand_one_count += prev_one_count
 
                     max_one_count = max(expand_one_count, max_one_count)
 
@@ -30,7 +30,7 @@ class Solution:
         elif zero_count > 0:
             expand_one_count = curr_one_count + 1
             if zero_count == 1:
-                expand_one_count = expand_one_count + prev_one_count
+                expand_one_count += prev_one_count
 
             max_one_count = max(expand_one_count, max_one_count)
 
