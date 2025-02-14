@@ -9,7 +9,7 @@ class MyLinkedList:
         self.head = None
 
     def get(self, index: int) -> int:
-        if self.head is None or index < 0 or index >= self.length:
+        if self.head is None or index < 0 or index > self.length - 1:
             return -1
         
         i = 0
@@ -22,11 +22,8 @@ class MyLinkedList:
 
     def addAtHead(self, val: int) -> None:
         node = ListNode(val)
-        if self.head is None:
-            self.head = node
-        else:
-            node.next = self.head
-            self.head = node
+        node.next = self.head
+        self.head = node
 
         self.length += 1
 
