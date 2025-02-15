@@ -11,13 +11,12 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if head is None:
             return None
-        
-        
+
         slow = fast = head
         for _ in range(n):
             fast = fast.next
-            
-        # We are removing the first node in the list    
+
+        # We are removing the first node in the list
         if fast is None:
             res = head.next
             head.next = None
