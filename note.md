@@ -15,6 +15,16 @@ Always read the constraints.
 
 - Whenever you're trying to solve an array problem in place, always consider the possibility of iterating backwards instead of forwards through the array. It can completely change the problem, and make it a lot easier.
 
+## Linked List
+
+When working with linked lists, consider the following cases:
+
+- Insertion or deletion in the **middle**
+- Insertion or deletion at the **beginning**
+- Insertion or deletion at the **end**
+- Handling a **single** node
+- Handling an **empty** list
+
 ## Two pointers
 
 - Consider if index can be out of bound for either pointer
