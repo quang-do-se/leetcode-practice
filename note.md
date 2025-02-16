@@ -25,6 +25,8 @@ When working with linked lists, consider the following cases:
 - Handling a **single** node
 - Handling an **empty** list
 
+Also, check if the linked list is a **singly linked list** or **doubly linked list**.
+
 ## Two pointers
 
 - Consider if index can be out of bound for either pointer
