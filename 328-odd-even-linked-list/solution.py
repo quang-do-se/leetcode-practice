@@ -13,14 +13,16 @@ class Solution:
         
         index = 2
         curr = head.next
-        last_odd = head
-        last_even = head.next
+        last_odd = head         # last node in ordered ODD group
+        last_even = head.next   # last node in ordered EVEN group
 
         while curr is not None:
             if index % 2 == 1:
                 last_even.next = curr.next
                 curr.next = last_odd.next
                 last_odd.next = curr
+
+                # Move curr forward and update odd group
                 curr = last_even.next
                 last_odd = last_odd.next
             else:
