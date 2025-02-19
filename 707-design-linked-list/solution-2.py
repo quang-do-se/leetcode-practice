@@ -106,7 +106,7 @@ class MyLinkedList:
             curr = curr.prev
         return arr
 
-# Your MyLinkedList object will be instantiated and called as such:
+
 my_linked_list = MyLinkedList()
 
 my_linked_list.addAtHead(1)        # 1
