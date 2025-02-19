@@ -77,33 +77,26 @@ class MyLinkedList:
 
         if index == 0:
             curr = self.head
-
-            if self.head.next is None:
-                self.tail = None
-            else:
-                self.head.next.prev = None
-
-            self.head = self.head.next
-            curr.next = None
-            self.length -= 1
-            return
-        if index == self.length - 1:
+        elif index == self.length - 1:
             curr = self.tail
-            # Don't need to handle `curr.prev is None`` thanks to above condition `index == 0`
-            curr.prev.next = None
-            self.tail = self.tail.prev
-            curr.prev = None
-            self.length -= 1
-            return
+        else:
+            i = 0
+            curr = self.head
+            while i < index:
+                curr = curr.next
+                i += 1
 
-        i = 0
-        curr = self.head
-        while i < index:
-            curr = curr.next
-            i += 1
+        # Handle deleting the first node
+        if curr.prev is not None:
+            curr.prev.next = curr.next
+        else:
+            self.head = curr.next
 
-        curr.prev.next = curr.next
-        curr.next.prev = curr.prev
+        # Handle deleting the last node
+        if curr.next is not None:
+            curr.next.prev = curr.prev
+        else:
+            self.tail = curr.prev
 
         curr.next = None
         curr.prev = None
