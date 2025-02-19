@@ -87,6 +87,14 @@ class MyLinkedList:
             curr.next = None
             self.length -= 1
             return
+        if index == self.length - 1:
+            curr = self.tail
+            # Don't need to handle `curr.prev is None`` thanks to above condition `index == 0`
+            curr.prev.next = None
+            self.tail = self.tail.prev
+            curr.prev = None
+            self.length -= 1
+            return
 
         i = 0
         curr = self.head
@@ -95,12 +103,7 @@ class MyLinkedList:
             i += 1
 
         curr.prev.next = curr.next
-
-        # Handle deleting at the end
-        if curr.next is not None:
-            curr.next.prev = curr.prev
-        else:
-            self.tail = self.tail.prev
+        curr.next.prev = curr.prev
 
         curr.next = None
         curr.prev = None
