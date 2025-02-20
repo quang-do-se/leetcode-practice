@@ -32,8 +32,6 @@ class Solution:
         return sorted_list.next
 
 
-
-
 sol = Solution()
 print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1,2,4]), LinkedList.generate_from_array([1,3,4]))) == [1, 1, 2, 3, 4, 4])
 print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([2]), LinkedList.generate_from_array([1]))) == [1, 2])
