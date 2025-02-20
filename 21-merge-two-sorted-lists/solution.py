@@ -9,37 +9,35 @@ from list_node import ListNode, LinkedList
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        # Very bad first approach: treat list1 as sorted list and merge list2 to list1
         if list1 is None:
             return list2
         if list2 is None:
             return list1
 
-        prev1 = None
-        curr1 = list1
-        curr2 = list2
+        sorted_node = None
+        sorted_list = list1
 
-        while curr1 and curr2:
-            if curr1.val <= curr2.val:
-                prev1 = curr1
-                curr1 = curr1.next
+        while list1 and list2:
+            if list1.val <= list2.val:
+                sorted_node = list1
+                list1 = list1.next
             else:
-                next2 = curr2.next
-                curr2.next = curr1
+                next2 = list2.next
+                list2.next = list1
 
-                if prev1 is None:
-                    list1 = curr2
+                if sorted_node is None:
+                    sorted_list = list2
                 else:
-                    prev1.next = curr2
+                    sorted_node.next = list2
 
-                prev1 = curr2
-                curr2 = next2
+                sorted_node = list2
+                list2 = next2
 
-        while curr2:
-            prev1.next = curr2
-            prev1 = curr2
-            curr2 = curr2.next
+        if list2:
+            sorted_node.next = list2
 
-        return list1
+        return sorted_list
 
 
 sol = Solution()

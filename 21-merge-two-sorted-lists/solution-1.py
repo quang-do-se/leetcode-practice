@@ -17,17 +17,16 @@ class Solution:
         sorted_list = ListNode(0)
         tail = sorted_list
 
-        while list1 or list2:
-            if not list2 or (list1 and list1.val < list2.val):
+        while list1 and list2:
+            if list1.val < list2.val:
                 tail.next = list1
-                tail = tail.next
                 list1 = list1.next
-            elif not list1 or (list2 and list1.val >= list2.val):
+            else:
                 tail.next = list2
-                tail = tail.next
                 list2 = list2.next
+            tail = tail.next
 
-            tail.next = None
+        tail.next = list1 if list1 else list2
 
         return sorted_list.next
 
