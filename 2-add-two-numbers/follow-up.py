@@ -20,7 +20,7 @@ class Solution:
             return None, 0
 
         next_node, carry = self.add_helper(l1.next, l2.next)  # Recur on next digits
-        
+
         sum_val = l1.val + l2.val + carry
         carry, digit = divmod(sum_val, 10)
 
@@ -33,12 +33,12 @@ class Solution:
         """ Adds remaining digits from the longer list before reaching stop_node. """
         if l1 == stop_node:
             return result, carry  # Stop recursion here
-        
+
         next_node, carry = self.add_remaining(l1.next, stop_node, result, carry)
-        
+
         sum_val = l1.val + carry
         carry, digit = divmod(sum_val, 10)
-        
+
         current_node = ListNode(digit)
         current_node.next = next_node
 
