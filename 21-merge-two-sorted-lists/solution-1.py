@@ -26,7 +26,7 @@ class Solution:
                 tail.next = list2
                 tail = tail.next
                 list2 = list2.next
-            
+
             tail.next = None
 
         return sorted_list.next
