@@ -15,7 +15,7 @@ class Solution:
             head = head.next
         return length
 
-    def add_helper(self, l1: Optional[ListNode], l2: Optional[ListNode])  -> (Optional[ListNode], int):
+    def add_helper(self, l1: Optional[ListNode], l2: Optional[ListNode]):
         if not l1:  # Base case: end of both lists
             return None, 0
 
@@ -29,7 +29,7 @@ class Solution:
 
         return current_node, carry
 
-    def add_remaining(self, l1: Optional[ListNode], stop_node: Optional[ListNode], result: Optional[ListNode], carry: int) -> (Optional[ListNode], int):
+    def add_remaining(self, l1: Optional[ListNode], stop_node: Optional[ListNode], result: Optional[ListNode], carry: int):
         """ Adds remaining digits from the longer list before reaching stop_node. """
         if l1 == stop_node:
             return result, carry  # Stop recursion here
