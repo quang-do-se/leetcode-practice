@@ -42,12 +42,10 @@ class Solution:
         return list1
 
 
-
-
 sol = Solution()
-print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1,2,4]), LinkedList.generate_from_array([1,3,4]))))
-print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([2]), LinkedList.generate_from_array([1]))))
-print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1]), LinkedList.generate_from_array([2]))))
-print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1]), LinkedList.generate_from_array([]))))
-print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([]), LinkedList.generate_from_array([2]))))
-print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([5]), LinkedList.generate_from_array([1,2,4]))))
+print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1,2,4]), LinkedList.generate_from_array([1,3,4]))) == [1, 1, 2, 3, 4, 4])
+print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([2]), LinkedList.generate_from_array([1]))) == [1, 2])
+print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1]), LinkedList.generate_from_array([2]))) == [1, 2])
+print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([1]), LinkedList.generate_from_array([]))) == [1])
+print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([]), LinkedList.generate_from_array([2]))) == [2])
+print(LinkedList.list_to_array(sol.mergeTwoLists(LinkedList.generate_from_array([5]), LinkedList.generate_from_array([1,2,4]))) == [1, 2, 4, 5])
