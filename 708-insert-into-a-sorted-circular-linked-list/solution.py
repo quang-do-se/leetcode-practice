@@ -35,7 +35,7 @@ class Solution:
         newNode.next = c
         return head
 
-def print_list(head: Optional[Node]):
+def get_list(head: Optional[Node]):
     arr = []
     curr = head
     while True:
@@ -43,19 +43,47 @@ def print_list(head: Optional[Node]):
         curr = curr.next
         if curr == head:
             break
-    print(arr)
+    return arr
+
 
 a = Node(1)
 b = Node(3)
-c = Node(5)
+c = Node(3)
+d = Node(5)
+
+sol = Solution()
 
 a.next = b
 b.next = c
-c.next = a
-
-print_list(a)
-
-sol = Solution()
+c.next = d
+d.next = a
 sol.insert(b, 2)
+print(get_list(a) == [1,2,3,3,5])
 
-print_list(a)
+a.next = b
+b.next = c
+c.next = d
+d.next = a
+sol.insert(b, 1)
+print(get_list(a) == [1,3,3,5,1])
+
+a.next = b
+b.next = c
+c.next = d
+d.next = a
+sol.insert(b, 4)
+print(get_list(a) == [1,3,3,4,5])
+
+a.next = b
+b.next = c
+c.next = d
+d.next = a
+sol.insert(b, 5)
+print(get_list(a) == [1,3,3,5,5])
+
+a.next = b
+b.next = c
+c.next = d
+d.next = a
+sol.insert(b, 0)
+print(get_list(a) == [1,3,3,5,0])
