@@ -15,6 +15,7 @@ class Solution:
             newNode.next = newNode
             return newNode
 
+        # Find the smallest node, `c`` stop at the smallest node
         p = head
         c = head.next
         while c != head:
@@ -25,6 +26,7 @@ class Solution:
 
         smallest = c
 
+        # Find the insertation point, `c` stop at the first node with value equals or is bigger than `insertVal`
         while insertVal > c.val:
             p = c
             c = c.next
