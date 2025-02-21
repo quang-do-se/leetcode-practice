@@ -24,7 +24,7 @@ class Solution:
                 sub_list.prev = curr
 
                 tail_of_sub_list = sub_list
-                while tail_of_sub_list is not None and tail_of_sub_list.next is not None:
+                while tail_of_sub_list and tail_of_sub_list.next:
                     tail_of_sub_list = tail_of_sub_list.next
 
                 tail_of_sub_list.next = next
