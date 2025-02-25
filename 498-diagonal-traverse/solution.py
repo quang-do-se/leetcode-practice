@@ -10,7 +10,7 @@ class Solution:
         width = len(mat[0])
         last_row = height - 1
         last_col = width - 1
-        
+
         res = []
 
         direction = up_right_direction
@@ -18,10 +18,10 @@ class Solution:
 
         while row < height and col < width:
             res.append(mat[row][col])
-            
+
             next_row = row + direction[0]
             next_col = col + direction[1]
-            
+
             switch_direction = False
 
             # Attempt to move to the right of the current cell if we are out of bound
@@ -35,7 +35,7 @@ class Solution:
                 next_row = row + 1
                 next_col = col
                 switch_direction = True
-            
+
             if switch_direction:
                 if direction == up_right_direction:
                     direction = down_left_direction

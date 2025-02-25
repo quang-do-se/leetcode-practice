@@ -6,10 +6,10 @@ class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         if len(mat) == 1:
             return mat[0]
-        
+
         array = []
         height, width = len(mat), len(mat[0])
-        row, col=0,0
+        row, col = 0, 0
 
         while row < height and col < width:
             while row >= 0 and col < width:
@@ -19,7 +19,7 @@ class Solution:
                 col += 1
             row += 1
             if col == width:
-                row += 1    
+                row += 1
                 col -= 1
 
             print(row, col)
@@ -32,7 +32,7 @@ class Solution:
                 row += 1
             col += 1
             if row == height:
-                row -= 1    
+                row -= 1
                 col += 1
             print(row, col)
 
