@@ -13,6 +13,8 @@ class Solution:
 
         direction = up_right_direction
         row, col = 0, 0
+        last_row = height - 1
+        last_col = width - 1
 
         while row < height and col < width:
             res.append(mat[row][col])
@@ -22,12 +24,12 @@ class Solution:
             
             switch_direction = False
 
-            if next_row < 0 or next_row > height - 1:
+            if next_row < 0 or next_row > last_row:
                 next_row = row
                 next_col = col + 1
                 switch_direction = True
 
-            if next_col < 0 or next_col > width - 1:
+            if next_col < 0 or next_col > last_col:
                 next_row = row + 1
                 next_col = col
                 switch_direction = True
