@@ -2,50 +2,45 @@ from typing import List
 
 
 class Solution:
+    # One of the fastest solution on LeetCode, it processes diagonals in pair
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        up_right_direction = (-1, 1)
-        down_left_direction = (1,- 1)
-
-        height = len(mat)
-        width = len(mat[0])
-
-        res = []
-
-        direction = up_right_direction
-        row, col = 0, 0
-        last_row = height - 1
-        last_col = width - 1
+        if len(mat) == 1:
+            return mat[0]
+        
+        array = []
+        height, width = len(mat), len(mat[0])
+        row, col=0,0
 
         while row < height and col < width:
-            res.append(mat[row][col])
-            
-            next_row = row + direction[0]
-            next_col = col + direction[1]
-            
-            switch_direction = False
+            while row >= 0 and col < width:
+                print(f"Add {row,col}")
+                array.append(mat[row][col])
+                row -= 1
+                col += 1
+            row += 1
+            if col == width:
+                row += 1    
+                col -= 1
 
-            if next_row < 0 or next_row > last_row:
-                next_row = row
-                next_col = col + 1
-                switch_direction = True
+            print(row, col)
+            print("Process the neighbor diagonal in reverse order")
 
-            if next_col < 0 or next_col > last_col:
-                next_row = row + 1
-                next_col = col
-                switch_direction = True
-            
-            if switch_direction:
-                if direction == up_right_direction:
-                    direction = down_left_direction
-                else:
-                    direction = up_right_direction
+            while row < height and col >= 0:
+                print(f"Add {row,col}")
+                array.append(mat[row][col])
+                col -= 1
+                row += 1
+            col += 1
+            if row == height:
+                row -= 1    
+                col += 1
+            print(row, col)
 
-            row, col = next_row, next_col
+            print(f"Finish one loop: {array}")
+            print()
 
-        return res
+        return array
 
 
 sol = Solution()
-print(sol.findDiagonalOrder([[1,2,3,4,5,6], [7,8,9,10,11,12], [13,14,15,16,17,18], [19,20,21,22,23,24], [25,26,27,28,29,30], [31,32,33,34,35,36]]))
 print(sol.findDiagonalOrder([[1,2,3], [4,5,6], [7,8,9]]))
-print(sol.findDiagonalOrder([[1,2], [3,4]]))
