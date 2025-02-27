@@ -150,6 +150,7 @@ for i in range(len(nums)):
 ```
 
 #### Fix - Reverse traversal
+
 ```python
 nums = [2, 4, 6, 8]
 for i in range(len(nums) - 1, -1, -1):
@@ -174,3 +175,5 @@ print(nums)  # Output: []
 ## Tips
 
 - In problems where we have to find kth largest/smallest number, we can always start by using any one of these three methods: sorting the array, using a priority queue, or using a sorted set. As these three methods keep array elements in sorted order and it's easy to find the required element.
+
+- Never forget to take the time complexity of built-in operations into consideration when you compute the time complexity for your solution.
