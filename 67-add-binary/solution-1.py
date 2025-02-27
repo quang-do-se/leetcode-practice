@@ -12,7 +12,7 @@ class Solution:
 
             v = va ^ vb ^ carry
 
-            carry = (va & vb) | (va & carry) | (vb & carry)
+            carry = (va & vb) | ((va ^ vb) & carry)
 
             res.append(str(v))
             ai -= 1
