@@ -10,11 +10,13 @@ class Solution:
             va = int(a[ai]) if ai >= 0 else 0
             vb = int(b[bi]) if bi >= 0 else 0
 
-            v = va ^ vb ^ carry
+            sum_without_carry = va ^ vb
 
-            carry = (va & vb) | ((va ^ vb) & carry)
+            sum = sum_without_carry ^ carry
 
-            res.append(str(v))
+            carry = (va & vb) | (sum_without_carry & carry)
+
+            res.append(str(sum))
             ai -= 1
             bi -= 1
 
