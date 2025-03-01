@@ -49,6 +49,29 @@ In Java:
 
 When converting a recursive algorithm to an iterative approach, we typically need to use a `stack` or `queue` to simulate the recursive function's call stack. If the recursive function maintains state, such as accumulations or additional variables, we may need to use a custom object, extra data structures (e.g., dictionaries or lists), or tuples in Python to store and track that state.
 
+## Binary Search
+
+- Use `mid = low + (high - low) // 2` to avoid integer overflow
+
+### Insertion Position
+
+The Lower Bound and Upper Bound matters when there are duplicate elements in the list.
+
+- Lower Bound: first/smallest index where `arr[i] >= target`
+- Upper Bound: first/smallest index where `arr[i] > target` (strictly greater than target)
+
+Note: It's quite tricky to determine whether to include/exclude `mid` value when implementing the Lower Bound or Upper Bound search. So keep these conditions in mind.
+
+```python
+import bisect
+
+array = [7, -4, 3, 9, 9, 9, 12]
+target = 9
+
+print(bisect.bisect_left(array, target))   # 3
+print(bisect.bisect_right(array, target))  # 6
+```
+
 ## Binary Tree
 
 Use `stack` for DFS.
