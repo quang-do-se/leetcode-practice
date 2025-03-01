@@ -31,6 +31,9 @@ Also, check if the linked list is a **singly linked list** or **doubly linked li
 
 - Consider if index can be out of bound for either pointer
 - If two pointers move in opposite direction, make sure the algorithm can stop correctly
+- Two pointers can go **same direction**, **opposite direction**, or **fixed width** (sliding window)
+
+This technique is often used in a **sorted** array.
 
 ## Identity vs Equality
 
