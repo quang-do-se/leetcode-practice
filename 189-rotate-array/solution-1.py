@@ -5,14 +5,11 @@ class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         n = len(nums)
         k %= n
-        res = [0] * n
-
-        for i in range(n):
-            res[(i + k) % n] = nums[i]
-        
-        for i in range(n):
-            nums[i] = res[i]
-        
+        for _ in range(k):
+            last_val = nums[n - 1]
+            for j in range(n - 1, 0, - 1):
+                nums[j] = nums[j - 1]
+            nums[0] = last_val
 
 sol = Solution()
 l = [1,2,3,4,5,6,7]
