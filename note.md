@@ -34,6 +34,7 @@ Also, check if the linked list is a **singly linked list** or **doubly linked li
 - Two pointers can go **same direction**, **opposite direction**, or **fixed width** (sliding window)
 
 This technique is often used in a **sorted** array.
+This technique sometimes will relate to Greedy Algorithm.
 
 ## Identity vs Equality
 
