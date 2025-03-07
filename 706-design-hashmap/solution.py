@@ -35,10 +35,11 @@ class MyHashMap:
     def remove(self, key: int) -> None:
         bucket = self.get_bucket(key)
 
-        for i in range(len(bucket) -1, -1, -1):
+        for i in range(len(bucket)):
             if bucket[i].key == key:
                 bucket.pop(i)
-        
+                return
+
 
 # Your MyHashMap object will be instantiated and called as such:
 myHashMap = MyHashMap()
@@ -50,3 +51,7 @@ myHashMap.put(2, 4)   # The map is now [[1,1], [2,1]] (i.e., update the existing
 print(myHashMap.get(2))      # return 1, The map is now [[1,1], [2,1]]
 myHashMap.remove(2)   # remove the mapping for 2, The map is now [[1,1]]
 print(myHashMap.get(2))      # return -1 (i.e., not found), The map is now [[1,1]]
+myHashMap.remove(2)
+myHashMap.remove(2)
+myHashMap.remove(1)
+myHashMap.remove(3)
