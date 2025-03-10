@@ -14,7 +14,6 @@ class Solution:
 
                 map[s[i]] = t[i]
 
-
         return True
 
 
