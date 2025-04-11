@@ -1,15 +1,14 @@
-# Edge Cases
+## Edge Cases
+
+- Null values
+- Empty array
+- Empty string
+- Negative number
+- Zero
+- Duplicates
+- Off-by-one (loop, out of bound)
 
 Always read the constraints.
-
-## String
-
-- Consider if string is empty
-
-## Number
-
-- Always check the number constraints
-- Check case == 0
 
 ## Array
 
