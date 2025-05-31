@@ -7,8 +7,7 @@ class Solution:
 
         for i in range(len(nums)):
             if nums[i] in map:
-                distance = i - map[nums[i]]
-                if distance <= k:
+                if abs(i - map[nums[i]]) <= k:
                     return True
 
             map[nums[i]] = i
