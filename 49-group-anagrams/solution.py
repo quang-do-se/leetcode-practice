@@ -6,7 +6,7 @@ class Solution:
 
         map = {}
         for s in strs:
-            sorted_s = "".join(sorted(s))
+            sorted_s = tuple(sorted(s))
             if sorted_s in map:
                 map[sorted_s].append(s)
             else:
