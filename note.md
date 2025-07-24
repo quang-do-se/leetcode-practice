@@ -205,3 +205,34 @@ print(nums)  # Output: []
 - In problems where we have to find kth largest/smallest number, we can always start by using any one of these three methods: sorting the array, using a priority queue, or using a sorted set. As these three methods keep array elements in sorted order and it's easy to find the required element.
 
 - Never forget to take the time complexity of built-in operations into consideration when you compute the time complexity for your solution.
+
+
+## Modulo
+
+In Python, the modulo operator (%) always returns a non-negative result when used with a positive divisor:
+
+``` python
+-25 % 26 = 1
+-51 % 26 = 1
+ 51 % 26 = 25
+```
+
+However, in C++ and Java, the result of the % operator can be negative if the dividend is negative:
+
+``` java
+-25 % 26 = -25
+-51 % 26 = -25
+ 51 % 26 =  25
+```
+
+To always get a positive remainder in C++ or Java, use the following formula: 
+
+**`((a % m) + m) % m`**
+
+This ensures the result is always in the range `[0, m)` regardless of whether `a` is positive or negative.
+
+``` java
+((-25 % 26) + 26) % 26 = 1
+((-51 % 26) + 26) % 26 = 1
+(( 51 % 26) + 26) % 26 = 25
+```
