@@ -65,21 +65,28 @@ class BinaryTree:
 
 
     @staticmethod
-    def visualize(tree: Optional[TreeNode]) -> List:
+    def visualize(tree: Optional[TreeNode], do_print: bool = True) -> str:
         if tree is None:
-            return []
+            return ""
 
         stack = deque([(tree, False, 0)])
-        col = 0
-        buffer_length = 4
+        tree_width = 0
+        tree_depth = 0
+        buffer_length = 2
 
-        while len(stack) > 0:
+        """
+        Calculate node positions:
+          - Global `tree_width` keeps track of the current position in the tree. Every node has its own unique column.
+          - Using DFS to calculate the left most node's position first and increase the tree column position
+        """
+        while stack:
             node, visited, row = stack.pop()
+            tree_depth = max(tree_depth, row)
 
             if node.left is None and node.right is None:
-                node.col = col
+                node.col = tree_width
                 node.row = row
-                col += len(str(node.val)) + buffer_length   # length of num + buffer length
+                tree_width += len(str(node.val)) + buffer_length   # length of num + buffer length
                 continue
 
             if not visited:
@@ -91,16 +98,21 @@ class BinaryTree:
                 if node.left is not None:
                     stack.append((node.left, False, row + 1))
             else:
-                node.col = col
+                node.col = tree_width
                 node.row = row
-                col += len(str(node.val)) + buffer_length   # length of num + buffer length
+                tree_width += len(str(node.val)) + buffer_length   # length of num + buffer length
 
+
+        """
+        Draw node position
+        Draw spaces and lines "_" and "|"
+        """
         queue = deque([tree])
         row_length = {}
         print_row =  {}
         print_line = {}
 
-        while len(queue) > 0:
+        while queue:
             node = queue.popleft()
 
             if node.row not in print_row:
@@ -116,40 +128,46 @@ class BinaryTree:
             if node.row not in print_line:
                 print_line[node.row] = []
 
+
+            # Print spaces and lines "_" and "|"
+            if node.row >= tree_depth:
+                continue
+
             if node.left is not None:
                 while len(print_line[node.row]) < node.left.col:
                     print_line[node.row].append(" ")
+
                 while len(print_line[node.row]) <= node.col:
                     print_line[node.row].append("_")
+
                 print_line[node.row][node.col] = "|"
                 queue.append(node.left)
+            else:
+                while len(print_line[node.row]) < node.col:
+                    print_line[node.row].append(" ")
 
             if node.right is not None:
                 while len(print_line[node.row]) <= node.right.col:
                     print_line[node.row].append("_")
+
                 print_line[node.row][node.col] = "|"
                 queue.append(node.right)
 
+
+        # Finalize all draw components
+        print_tree = []
         for level in range(len(print_row)):
-            print("".join(print_row[level]))
-            print("".join(print_line[level]))
+            print_tree.append("".join(print_row[level]))
+            print_tree.append("".join(print_line[level]))
+
+        visualized_tree = "\n".join(print_tree)
+
+        if do_print:
+            print(visualized_tree)
+        return visualized_tree
 
 
-"""
-array = [0,1,2,3,45555555555,5,6,7,None,4,7]
-BinaryTree.visualize(BinaryTree.from_array(array))
 
-array = [0,1,2,3,4,5,6,7,None,4,7]
-BinaryTree.visualize(BinaryTree.from_array(array))
-array = [0,1]
-BinaryTree.visualize(BinaryTree.from_array(array))
-array = [0,None,1]
-BinaryTree.visualize(BinaryTree.from_array(array))
-array = [0]
-BinaryTree.visualize(BinaryTree.from_array(array))
-array = []
-BinaryTree.visualize(BinaryTree.from_array(array))
-"""
 
 """
 array = [None]
@@ -182,3 +200,46 @@ print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 array = [1,2,3,4,None,5,None,None,None,7]
 print(BinaryTree.to_array(BinaryTree.from_array(array)) == array)
 """
+
+
+
+
+"""
+array = [0,1,2,3,45555555555,5,6,7,None,4,7]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = [0,1]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = [0,None,1]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = [0]
+BinaryTree.visualize(BinaryTree.from_array(array))
+array = []
+BinaryTree.visualize(BinaryTree.from_array(array))
+"""
+
+print(BinaryTree.visualize(BinaryTree.from_array([0,1,2,3,4,5,6,7,None,4,7]), False) ==
+'''\
+                  0
+      ____________|______
+      1                 2
+   ___|______        ___|___
+   3        4        5     6
+___|     ___|___           
+7        4     7
+''')
+
+print(BinaryTree.visualize(BinaryTree.from_array([0]), False) == 
+'''\
+0
+''')
+
+print(BinaryTree.visualize(BinaryTree.from_array([]), False) == "")
+
+print(BinaryTree.visualize(BinaryTree.from_array([6,5,5,4,6,None,6]), False) == 
+'''\
+         6
+   ______|___
+   5        5
+___|___     |___
+4     6        6
+''')
