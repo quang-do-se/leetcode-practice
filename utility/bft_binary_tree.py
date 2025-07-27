@@ -217,6 +217,8 @@ array = []
 BinaryTree.visualize(BinaryTree.from_array(array))
 """
 
+"""
+
 print(BinaryTree.visualize(BinaryTree.from_array([0,1,2,3,4,5,6,7,None,4,7]), False) ==
 '''\
                   0
@@ -243,3 +245,4 @@ print(BinaryTree.visualize(BinaryTree.from_array([6,5,5,4,6,None,6]), False) ==
 ___|___     |___
 4     6        6
 ''')
+"""
