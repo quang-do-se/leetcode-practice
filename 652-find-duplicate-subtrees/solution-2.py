@@ -9,33 +9,35 @@ from bft_binary_tree import TreeNode, BinaryTree
 
 class Solution:
     def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
-        self.count_map = {}
+        self.triplet_to_id = {}
+        self.count = {}
         self.result = []
         self.serialize_node(root)
 
         return self.result
 
-    def update_map(self, serialized_tree: List[str], node: Optional[TreeNode]):
-        hash_key = tuple(serialized_tree)
-        if hash_key in self.count_map:
-            if self.count_map[hash_key] == 1:
-                self.result.append(node)
-            self.count_map[hash_key] += 1
-        else:
-            self.count_map[hash_key] = 1
-
-
     def serialize_node(self, node: Optional[TreeNode]) -> str:
         if node == None:
-            return "()"
+            return 0
 
-        serialized_left_node = self.serialize_node(node.left)
-        serialized_right_node = self.serialize_node(node.right)
+        triplet_left = self.serialize_node(node.left)
+        triplet_right = self.serialize_node(node.right)
 
-        serialized_tree = f"({serialized_left_node}{node.val}{serialized_right_node})"
+        triplet_node = (triplet_left, node.val, triplet_right)
 
-        self.update_map(serialized_tree, node)
-        return serialized_tree
+        # Give triplet an unique id if it's not been tracked
+        if triplet_node not in self.triplet_to_id:
+            self.triplet_to_id[triplet_node] = len(self.triplet_to_id) + 1
+
+        # Retrieve new id of the triplet
+        id = self.triplet_to_id[triplet_node]
+        self.count[id] = self.count.get(id, 0) + 1
+
+        # If there is a duplicate id, add to the result
+        if self.count[id] == 2:
+            self.result.append(node)
+
+        return id
 
 
 # [0,2,3,4,3,2,4,null,null,null,null,4,3]
