@@ -7,6 +7,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), "utilit
 
 from bft_binary_tree import TreeNode, BinaryTree
 
+# Optimized solution
 class Solution:
     def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
         self.triplet_to_id = {}
