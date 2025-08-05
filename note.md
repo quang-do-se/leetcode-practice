@@ -7,6 +7,7 @@
 - Zero
 - Duplicates
 - Off-by-one (loop, out of bound)
+- Different in lengths
 
 Always read the constraints.
 
