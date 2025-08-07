@@ -1,6 +1,7 @@
 from typing import List
 
 
+# Using set() for store collision
 class ValidWordAbbr:
 
     def __init__(self, dictionary: List[str]):
@@ -10,9 +11,9 @@ class ValidWordAbbr:
             abbr = self.getAbbreviation(word)
 
             if abbr not in self.abbreviations:
-                self.abbreviations[abbr] = {word: word}
+                self.abbreviations[abbr] = {word}
             else:
-                self.abbreviations[abbr][word] = word
+                self.abbreviations[abbr].add(word)
 
     def isUnique(self, word: str) -> bool:
         abbr = self.getAbbreviation(word)
