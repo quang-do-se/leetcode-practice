@@ -7,7 +7,13 @@
 - Zero
 - Duplicates
 - Off-by-one (loop, out of bound)
+
+List:
+- Are elements unique?
+
+Mapping:
 - Different in lengths
+- Is it bidirectional? Or bijection?
 
 Always read the constraints.
 
