@@ -1,5 +1,6 @@
 import random
 
+
 class RandomizedSet:
 
     def __init__(self):
@@ -8,13 +9,13 @@ class RandomizedSet:
         self.count = 0
 
     def insert(self, val: int) -> bool:
-        if val in self.num_to_index:
-            return False
-        
-        self.num_to_index[val] = len(self.list)
-        self.list.append(val)
+        if val not in self.num_to_index:
+            self.num_to_index[val] = len(self.list)
+            self.list.append(val)
 
-        return True
+            return True
+        else:
+            return False
 
     def remove(self, val: int) -> bool:
         if val in self.num_to_index:
@@ -39,11 +40,12 @@ class RandomizedSet:
 
 # Your RandomizedSet object will be instantiated and called as such:
 obj = RandomizedSet()
-obj.insert(1)
-obj.insert(1)
-obj.insert(2)
-obj.insert(3)
-obj.insert(4)
+print(obj.insert(1))
+print(obj.insert(1))
+print(obj.insert(2))
+print(obj.insert(3))
+print(obj.insert(4))
+
 
 print("Random:", obj.getRandom())
 print("Random:", obj.getRandom())
