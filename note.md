@@ -33,6 +33,28 @@ When working with linked lists, consider the following cases:
 
 Also, check if the linked list is a **singly linked list** or **doubly linked list**.
 
+### Use Sentinel Node to solve Linked List problems
+
+A dummy node (sometimes called a `sentinel node`) in linked list problems is an extra node placed at the start (and sometimes end) of the list that doesn't store meaningful data. It's mainly there to simplify your code logic.
+
+Benefits Of Using A Sentinel Node In Linked Lists:
+
+1. Simplifies edge case handling
+    - Without sentinel node: must check if list is empty or if the node to insert/delete is at the head.
+    - With sentinel node: every real node (including the original head) has a previous node, so you can handle head and non-head operations in the same way.
+
+2. Cleaner insert/delete logic
+    - Fewer `if (head == NULL)` or `if (node == head)` checks.
+    - Just start from `sentinel->next` and handle everything uniformly.
+
+3. Reduces pointer bugs
+    - No special "first node" pointer updates.
+    - Head stays safe behind the sentinel node.
+
+4. Makes list building easier
+    - Gives you a permanent anchor to return the head easily.
+    - Lets you keep a `tail` pointer that always points to the last node, starting at the dummy/sentinel, so you can append nodes without checking if the list is empty.
+
 ## Two-pointers technique
 
 - Consider if index can be out of bound for either pointer
