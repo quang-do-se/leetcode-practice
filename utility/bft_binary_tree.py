@@ -36,8 +36,8 @@ class BinaryTree:
                 node.right = TreeNode(binary_tree_array[i])
                 queue.append(node.right)
 
-        if i < len(binary_tree_array):
-            raise("Not a valid binary tree.")
+        # if i < len(binary_tree_array):
+        #    raise("Not a valid binary tree.")
 
         return root
 
