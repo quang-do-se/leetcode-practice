@@ -1,5 +1,5 @@
 class Solution:
-    cache = {0: 1, 1: 1}
+    cache = {0: 0, 1: 1, 2: 2}
 
     def climbStairs(self, n: int) -> int:
         if n < 0:
@@ -12,6 +12,7 @@ class Solution:
 
 
 sol = Solution()
+print(sol.climbStairs(1))
 print(sol.climbStairs(2))
 print(sol.climbStairs(3))
 print(sol.climbStairs(4))
