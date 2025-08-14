@@ -12,7 +12,7 @@ class Solution:
 
 
 sol = Solution()
-print(sol.climbStairs(1))
-print(sol.climbStairs(2))
-print(sol.climbStairs(3))
-print(sol.climbStairs(4))
+print(sol.climbStairs(1) == 1)
+print(sol.climbStairs(2) == 2)
+print(sol.climbStairs(3) == 3)
+print(sol.climbStairs(4) == 5)
