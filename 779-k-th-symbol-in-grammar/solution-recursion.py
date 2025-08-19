@@ -1,16 +1,21 @@
 class Solution:
-    map = {0: "01", 1: "10"}
-
     def kthGrammar(self, n: int, k: int) -> int:
         if n == 1:
             return 0
-        
+
         previous_number = self.kthGrammar(n - 1, k // 2 + k % 2)
 
-        expand_previous_number = self.map[previous_number]
+        """
+        If the next number is the first digit of the expanded number, it will be the same as the previous number
+        If the next number is the second digit, it will be flipped
 
-        return int(expand_previous_number[k % 2 ^ 1])
-    
+        Obserse this, notice the first digit is the same as previous number
+        0 -> 01
+        1 -> 10
+        """
+
+        return previous_number ^ (k % 2 ^ 1)
+
 
 sol = Solution()
 print(sol.kthGrammar(1, 1) == 0)
