@@ -13,4 +13,8 @@ class Solution:
     
 
 sol = Solution()
-print(sol.kthGrammar(5, 5))
+print(sol.kthGrammar(1, 1) == 0)
+print(sol.kthGrammar(2, 1) == 0)
+print(sol.kthGrammar(2, 2) == 1)
+print(sol.kthGrammar(5, 15) == 1)
+print(sol.kthGrammar(4, 5) == 1)
