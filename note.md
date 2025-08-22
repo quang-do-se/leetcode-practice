@@ -109,6 +109,12 @@ Use `stack` for DFS.
 
 Use `queue` for BFS.
 
+## Binary Search Tree
+
+In each node of a binary search tree (BST), all values in the left subtree are smaller and all values in the right subtree are greater.
+
+In a BST, every subtree is also a BST.
+
 ### Notes
 
 The root node (which has no parents) has depth 0.
