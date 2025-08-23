@@ -14,5 +14,6 @@ class Solution:
 
 s = Solution()
 print(s.lengthOfLastWord("") == 0)
+print(s.lengthOfLastWord("a "))
 print(s.lengthOfLastWord("Hello World") == 5)
 print(s.lengthOfLastWord("   fly me   to   the moon  ") == 4)
