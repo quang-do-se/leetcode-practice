@@ -1,6 +1,7 @@
 from collections import deque
 from typing import List
 
+
 # Slow but accepted solution
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -29,12 +30,20 @@ class Solution:
                 current_row, current_col = queue.popleft()
 
                 for direction in self.directions:
-                    new_row, new_col = current_row + direction[0], current_col + direction[1]
+                    new_row, new_col = (
+                        current_row + direction[0],
+                        current_col + direction[1],
+                    )
 
                     if (new_row, new_col) in self.visited_island:
                         continue
 
-                    if new_row < 0 or new_row >= len(grid) or new_col < 0 or new_col >= len(grid[row]):
+                    if (
+                        new_row < 0
+                        or new_row >= len(grid)
+                        or new_col < 0
+                        or new_col >= len(grid[row])
+                    ):
                         continue
 
                     if grid[new_row][new_col] != "1":
@@ -44,7 +53,11 @@ class Solution:
                     self.visited_island.add((new_row, new_col))
 
 
-
 sol = Solution()
-grid = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
+grid = [
+    ["1", "1", "0", "0", "0"],
+    ["1", "1", "0", "0", "0"],
+    ["0", "0", "1", "0", "0"],
+    ["0", "0", "0", "1", "1"],
+]
 print(sol.numIslands(grid))
