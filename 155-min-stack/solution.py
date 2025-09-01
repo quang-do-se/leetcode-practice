@@ -17,7 +17,7 @@ class MinStack:
         self.size -= 1
 
     def top(self) -> int:
-        return self.storage[self.size - 1]
+        return self.storage[-1]
 
     def getMin(self) -> int:
         return self.min_at_index[-1]
