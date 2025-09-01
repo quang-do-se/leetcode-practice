@@ -272,6 +272,9 @@ This ensures the result is always in the range `[0, m)` regardless of whether `a
 (( 51 % 26) + 26) % 26 = 25
 ```
 
+# Random
+- An **invariant** is something that is always true or consistent. You should always be on the lookout for useful invariants when problem-solving in math and computer science.
+
 # Needs review
 
 - Two's Complement
