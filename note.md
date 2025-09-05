@@ -280,3 +280,4 @@ This ensures the result is always in the range `[0, m)` regardless of whether `a
 - Two's Complement
 - Boyer-Moore Voting Algorithm
 - Floyd's Cycle Detection Algorithm
+- Union Find Algorithm
