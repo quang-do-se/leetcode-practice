@@ -20,8 +20,7 @@ class Solution:
             
             for neighbor in current_node.neighbors:
                 if neighbor.val not in visited:
-                    cloned_neighbor = Node(neighbor.val)
-                    visited[neighbor.val] = cloned_neighbor
+                    visited[neighbor.val] = Node(neighbor.val)
                     stack.append(neighbor)
                     
                 cloned_neighbor = visited.get(neighbor.val)
