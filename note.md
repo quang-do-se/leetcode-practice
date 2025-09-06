@@ -241,6 +241,20 @@ print(nums)  # Output: []
 
 - Never forget to take the time complexity of built-in operations into consideration when you compute the time complexity for your solution.
 
+### BFS and DFS
+
+- In BFS and DFS, it's common practice to mark a node as `visited` when you push it onto the queue or stack, rather than when you pop it. This prevents the same node from being enqueued or pushed multiple times by different neighbors. If you delay marking until you remove the node, you may end up with duplicates in the queue/stack, which wastes memory and processing time. By marking early, each node is guaranteed to appear only once in the search `frontier`.
+- Use a **structured trace table** to walk through BFS and DFS. Example - Graph: `[{A: B, C, D}, {B: E}, {C: F}, {D: None}, {E: None}, {F: None}]`:
+
+    | Step | Current Node | Frontier   | Visited            | Action                   |
+    | ---- | ------------ | ---------- | ------------------ | ------------------------ |
+    | 0    | –            | \[A]       | {}                 | Start with A in frontier |
+    | 1    | A            | \[B, C, D] | {A}                | Dequeue A, add neighbors |
+    | 2    | B            | \[C, D, E] | {A, B}             | Dequeue B, add E         |
+    | 3    | C            | \[D, E, F] | {A, B, C}          | Dequeue C, add F         |
+    | 4    | D            | \[E, F]    | {A, B, C, D}       | Dequeue D (no neighbors) |
+    | 5    | E            | \[F]       | {A, B, C, D, E}    | Dequeue E (no neighbors) |
+    | 6    | F            | \[]        | {A, B, C, D, E, F} | Dequeue F (done)         |
 
 ## Modulo
 
