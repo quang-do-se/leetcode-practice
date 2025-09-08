@@ -9,16 +9,33 @@ from bft_binary_tree import TreeNode, BinaryTree
 
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
+        if root is None:
             return []
+        
+        result = []
+        stack = []
+        visised = set()
 
-        res = []
-        res += self.inorderTraversal(root.left)
-        res.append(root.val)
-        res += self.inorderTraversal(root.right)
+        stack.append(root)
+        
+        while stack:
+            current_node = stack.pop()
+            
+            if current_node in visised:
+                result.append(current_node.val)
+                continue
 
-        return res
+            if current_node.right:
+                stack.append(current_node.right)
 
+            stack.append(current_node)
+            visised.add(current_node)
+
+            if current_node.left:
+                stack.append(current_node.left)
+        
+        return result
+    
 
 sol = Solution()
 # BinaryTree.visualize(BinaryTree.from_array([1,None,2,3]))
