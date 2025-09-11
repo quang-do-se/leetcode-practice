@@ -6,7 +6,7 @@ class MyStack:
     def __init__(self):
         self.q1 = deque()
         self.q2 = deque()
-        self.top_element = []
+        self.top_element = None
 
     def push(self, x: int) -> None:
         self.top_element = x
@@ -14,6 +14,9 @@ class MyStack:
         self.q1.append(x)
 
     def pop(self) -> int:
+        if self.empty():
+            return None
+
         self.top_element = None
 
         while len(self.q1) > 1:
@@ -34,7 +37,7 @@ class MyStack:
         return self.top_element
 
     def empty(self) -> bool:
-        return len(self.q1) == 0 and len(self.q2) == 0
+        return len(self.q1) == 0
 
 
 # Your MyStack object will be instantiated and called as such:
@@ -47,3 +50,4 @@ print(obj.pop())
 print(obj.top())
 print(obj.pop())
 print(obj.top())
+print(obj.pop())
