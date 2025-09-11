@@ -11,29 +11,21 @@ class MyStack:
     def push(self, x: int) -> None:
         self.top_element = x
 
-        if self.q2:
-            self.q2.append(x)
-        else:
-            self.q1.append(x)
+        self.q1.append(x)
 
     def pop(self) -> int:
         self.top_element = None
-        
-        if self.q1:
-            while len(self.q1) > 1:
-                self.top_element = self.q1.popleft()
-                self.q2.append(self.top_element)
 
-            return self.q1.popleft()
+        while len(self.q1) > 1:
+            self.top_element = self.q1.popleft()
+            self.q2.append(self.top_element)
+
+        val = self.q1.popleft()
 
         if self.q2:
-            while len(self.q2) > 1:
-                self.top_element = self.q2.popleft()
-                self.q1.append(self.top_element)
+            self.q2, self.q1 = self.q1, self.q2
 
-            return self.q2.popleft()
-
-        return None
+        return val
 
     def top(self) -> int:
         if self.empty():
