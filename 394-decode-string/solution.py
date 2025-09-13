@@ -13,19 +13,18 @@ class Solution:
                 n = 0
                 continue
             if c == ']':
-                print = ""                
+                expand = ""                
                 while not stack[-1].isnumeric():
-                    print = stack.pop() + print
+                    expand = stack.pop() + expand
 
                 repeat = int(stack.pop())
 
-                print = print * repeat      
+                expand = expand * repeat      
 
                 if stack:
-                    for c in print:
-                        stack.append(c)
+                    stack.append(expand)
                 else:
-                    res += print
+                    res += expand
 
                 continue
 
