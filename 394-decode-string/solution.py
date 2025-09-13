@@ -5,7 +5,7 @@ class Solution:
         res = ""
 
         for c in s:
-            if c.isnumeric():
+            if c.isdigit():
                 n = n * 10 + int(c)
                 continue
             if c == '[':
