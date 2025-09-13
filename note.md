@@ -229,10 +229,14 @@ print(nums)  # Output: []
 - https://docs.python-guide.org/writing/gotchas/
   - Try to avoid using `mutable default arguments` like `list` or `dict`
 
+- Check if a string is numeric
+  - Understand the differences between `isdecimal()`, `isdigit()`, and `isnumeric()`: https://stackoverflow.com/a/54912545
+  - In most cases, `isdigit()` is the safest default.
 
 ## Time Complexity
 
 - When dividing an integer `x` by `y`, there can be at most `O(logarithm base y of x)` divisions.
+    - For example, dividing `32` by `2` will be `O(log base 2 of 32) = 5`
 
 
 ## Tips
