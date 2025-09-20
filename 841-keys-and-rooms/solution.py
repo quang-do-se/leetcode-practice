@@ -16,14 +16,12 @@ class Solution:
                     stack.append(key)
                     visited.add(key)
         
-        if len(visited) == n:
-            return True
-        return False
+        return len(visited) == n
 
 sol = Solution()
 rooms = [[1],[2],[3],[]]
 
-print(sol.canVisitAllRooms([[1],[2],[3],[]]))
-print(sol.canVisitAllRooms([[1],[],[3],[2]]))
-print(sol.canVisitAllRooms([[1,3],[3,0,1],[2],[0]]))
-print(sol.canVisitAllRooms([[2],[],[1]]))
+print(sol.canVisitAllRooms([[1],[2],[3],[]]) == True)
+print(sol.canVisitAllRooms([[1],[],[3],[2]]) == False)
+print(sol.canVisitAllRooms([[1,3],[3,0,1],[2],[0]]) == False)
+print(sol.canVisitAllRooms([[2],[],[1]]) == True)
