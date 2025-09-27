@@ -186,6 +186,19 @@ total_nodes_in_complete_binary_tree - total_nodes_in_minimum_bft_binary_tree
 => (2 ^ 4 - 1) - (2 * 3 + 1)
 => 15 - 7 = 8
 ```
+
+### Complete Binary Tree to Array
+
+When a complete binary tree is stored in an array (root at index 0), the index arithmetic gives you all parent–child relationships.
+
+Formulas:
+
+- Parent: `(i - 1) // 2`
+- Left child: `2i + 1`
+- Right child: `2i + 2`
+- Leaf check (method 1): `2i + 1 >= n`
+- Leaf check (method 2): `i >= n // 2`
+
 ## Collection
 
 ### Concurrent Modification
