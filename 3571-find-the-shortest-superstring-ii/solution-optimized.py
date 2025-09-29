@@ -18,6 +18,9 @@ class Solution:
 
 sol = Solution()
 
-
+print(sol.shortestSuperstring("abc", "bcda") == "abcda")
+print(sol.shortestSuperstring("bcda", "abc")  == "abcda")
 print(sol.shortestSuperstring("gwb", "slfg") == "slfgwb")
 print(sol.shortestSuperstring("kbcdefg", "defghijk") == "kbcdefghijk")
+print(sol.shortestSuperstring("abcd", "cdea") == "abcdea")
+print(sol.shortestSuperstring("m", "azmvzfh") == "azmvzfh")
