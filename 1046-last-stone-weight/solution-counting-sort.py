@@ -10,9 +10,10 @@ class Solution:
         for stone in stones:
             freq[stone] += 1
 
+        # Two pointers i and j
         i = max_weight
 
-        while i > 0:
+        while True:
             if freq[i] == 0:
                 i -= 1
             else:
@@ -26,9 +27,6 @@ class Solution:
                     freq[i - j] += 1
                 else:
                     return i
-        
-        return 0
-                
 
 
 sol = Solution()
@@ -36,4 +34,4 @@ print(sol.lastStoneWeight([2, 7, 4, 1, 8, 1]) == 1)
 print(sol.lastStoneWeight([1]) == 1)
 print(sol.lastStoneWeight([1, 4]) == 3)
 print(sol.lastStoneWeight([2, 2]) == 0)
-print(sol.lastStoneWeight([2]))
+print(sol.lastStoneWeight([2]) == 2)
