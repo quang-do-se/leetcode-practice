@@ -247,6 +247,21 @@ print(nums)  # Output: []
   - In most cases, `isdigit()` is the safest default.
 
 
+## Python List Initialization
+
+There are two common ways to create a list with repeated elements:
+
+1. `[0] * 1000`
+- ✔ Fast (~3× faster)
+- ⚠ Creates 1000 references to the SAME object
+- ✔ Safe for immutable types (int, str, None)
+- ✖ Not safe for mutable types (list, dict, set)
+
+2. `[0 for _ in range(1000)]`
+- ✔ Each element is a NEW instance
+- 🐢 Slightly slower, but safe for mutable types
+
+
 ## Time Complexity
 
 - When dividing an integer `x` by `y`, there can be at most `O(logarithm base y of x)` divisions.
