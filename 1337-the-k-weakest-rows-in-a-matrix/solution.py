@@ -13,17 +13,17 @@ class Solution:
                 else:
                     break
 
-            soldier_count = soldier_count * 1000 + row
+            strength = (-soldier_count, -row)
 
             if len(max_heap) < k:
-                heapq.heappush(max_heap, (-soldier_count, row))
-            elif soldier_count < -max_heap[0][0]:
+                heapq.heappush(max_heap, strength)
+            elif strength > max_heap[0]:
                 heapq.heappop(max_heap)
-                heapq.heappush(max_heap, (-soldier_count, row))
+                heapq.heappush(max_heap, strength)
 
         res = []
         while len(max_heap) > 0:
-            res.append(heapq.heappop(max_heap)[1])
+            res.append(-heapq.heappop(max_heap)[1])
 
         res.reverse()
 
