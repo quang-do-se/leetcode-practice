@@ -19,7 +19,7 @@ class Solution:
         return [t[1] for t in max_heap]
 
     def get_distance_from_center(self, x: int, y: int):
-        return sqrt(x * x + y * y)
+        return x * x + y * y   # No need to take square root
 
 
 sol = Solution()
