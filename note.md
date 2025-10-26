@@ -271,6 +271,7 @@ There are two common ways to create a list with repeated elements:
 ## Tips
 
 - In problems where we have to find kth largest/smallest number, we can always start by using any one of these three methods: sorting the array, using a priority queue, or using a sorted set. As these three methods keep array elements in sorted order and it's easy to find the required element.
+    - Most problems involving finding the k-th largest or smallest element can be further optimized using the QuickSelect algorithm or a variant of Binary Search that follows similar partitioning principles.
 
 - Never forget to take the time complexity of built-in operations into consideration when you compute the time complexity for your solution.
 

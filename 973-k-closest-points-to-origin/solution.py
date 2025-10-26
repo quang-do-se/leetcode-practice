@@ -1,4 +1,3 @@
-from math import sqrt
 from typing import List
 import heapq
 
@@ -19,7 +18,7 @@ class Solution:
         return [t[1] for t in max_heap]
 
     def get_distance_from_center(self, x: int, y: int):
-        return x * x + y * y   # No need to take square root
+        return x * x + y * y
 
 
 sol = Solution()
