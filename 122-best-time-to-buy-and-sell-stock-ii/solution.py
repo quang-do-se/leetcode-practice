@@ -24,13 +24,10 @@ class Solution:
             total_profit += up_profit
 
         return total_profit
-                
-                    
-
 
 
 sol = Solution()
-print(sol.maxProfit([7,1,5,3,6,4]))
-print(sol.maxProfit([1,2,3,4,5]))
-print(sol.maxProfit([7,6,4,3,1]))
-print(sol.maxProfit([7,1,3,3,6,2,5,3,8]))
+print(sol.maxProfit([7, 1, 5, 3, 6, 4]))
+print(sol.maxProfit([1, 2, 3, 4, 5]))
+print(sol.maxProfit([7, 6, 4, 3, 1]))
+print(sol.maxProfit([7, 1, 3, 3, 6, 2, 5, 3, 8]))
