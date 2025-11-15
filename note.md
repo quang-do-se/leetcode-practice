@@ -248,6 +248,8 @@ print(nums)  # Output: []
 - https://docs.python-guide.org/writing/gotchas/
   - Try to avoid using `mutable default arguments` like `list` or `dict`
 
+- Python's closures are **late-binding**: variables are resolved when the function is **called**, not when it's **defined**.
+
 - Check if a string is numeric
   - Understand the differences between `isdecimal()`, `isdigit()`, and `isnumeric()`: https://stackoverflow.com/a/54912545
   - In most cases, `isdigit()` is the safest default.
