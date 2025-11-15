@@ -80,9 +80,15 @@ In Java:
 
 When converting a recursive algorithm to an iterative approach, we typically need to use a `stack` or `queue` to simulate the recursive function's call stack. If the recursive function maintains state, such as accumulations or additional variables, we may need to use a custom object, extra data structures (e.g., dictionaries or lists), or tuples in Python to store and track that state.
 
+
 ## Binary Search
 
 - Use `mid = low + (high - low) // 2` to avoid integer overflow
+
+- Think about what happens once the search space is of length-two.
+
+- The short rule to remember is: if you used `hi = mid - 1`, then use the higher midpoint. If you used `lo = mid + 1`, then use the lower midpoint. If you used both of these, then you can use either midpoint. If you didn’t use either (i.e., you have `lo = mid` and `hi = mid`), then, unfortunately, your code is buggy, and you won’t be able to guarantee convergence.
+
 
 ### Insertion Position
 
