@@ -34,7 +34,7 @@ class MedianFinder:
             shorter_heap = self.right_heap
 
         while len(longer_heap) > len(shorter_heap):
-            print("Re-balance")
+            # print("Re-balance")
             top_longer = heapq.heappop(longer_heap)
             heapq.heappush(shorter_heap, -top_longer)
 
