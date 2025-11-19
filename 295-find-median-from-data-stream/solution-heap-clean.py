@@ -1,4 +1,4 @@
-import heapq
+from heapq import heappushpop, heappush, heappop
 
 
 class MedianFinder:
@@ -9,12 +9,11 @@ class MedianFinder:
 
     def addNum(self, num: int) -> None:
         # Add the num to the right heap, pop out the smallest item in the right heap and add it back to the left heap
-        heapq.heappush(self.right_heap, num)
-        heapq.heappush(self.left_heap, -heapq.heappop(self.right_heap))
+        heappush(self.left_heap, -heappushpop(self.right_heap, num))
 
         # Re-balance
         while len(self.left_heap) > len(self.right_heap):
-            heapq.heappush(self.right_heap, -heapq.heappop(self.left_heap))
+            heappush(self.right_heap, -heappop(self.left_heap))
 
     def findMedian(self) -> float:
         if len(self.left_heap) == len(self.right_heap):
