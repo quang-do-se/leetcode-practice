@@ -1,6 +1,6 @@
 import heapq
 
-
+# Fastest
 class MedianFinder:
 
     def __init__(self):
@@ -8,12 +8,15 @@ class MedianFinder:
         self.right_heap = []  # min heap
 
     def addNum(self, num: int) -> None:
-        # Add the num to the right heap, pop out the smallest item in the right heap and add it back to the left heap
-        heapq.heappush(self.right_heap, num)
-        heapq.heappush(self.left_heap, -heapq.heappop(self.right_heap))
+        if not self.right_heap or num >= self.right_heap[0]:
+            heapq.heappush(self.right_heap, num)
+        else:
+            heapq.heappush(self.left_heap, -num)
 
-        # Re-balance
-        while len(self.left_heap) > len(self.right_heap):
+        # Re-balance: right_heap's size is always +1 or equals to the left_heap's size
+        if len(self.right_heap) > len(self.left_heap) + 1:
+            heapq.heappush(self.left_heap, -heapq.heappop(self.right_heap))
+        elif len(self.left_heap) > len(self.right_heap):
             heapq.heappush(self.right_heap, -heapq.heappop(self.left_heap))
 
     def findMedian(self) -> float:
