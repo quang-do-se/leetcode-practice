@@ -12,7 +12,7 @@ class Solution:
             else:
                 right = mid - 1
 
-        return left - 1
+        return (left + right) // 2   # left - 1
 
 
 sol = Solution()
