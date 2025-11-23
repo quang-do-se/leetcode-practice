@@ -12,8 +12,7 @@ class Solution:
             else:
                 right = mid - 1
 
-        return (left + right) // 2   # left - 1
-
+        return right
 
 sol = Solution()
 print(sol.mySqrt(0) == 0)
