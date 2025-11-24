@@ -16,15 +16,19 @@ So `left` always moves upward after finding something _valid_, and `right` alway
 
 ### What happens at exit
 
-The loop stops when `left > right`.  
-At that moment:
+The loop stops when `left > right`.
 
+At that moment:
 - `right` is the **largest number such that right² ≤ x**
 - `left` is the **smallest number such that left² > x**
     
-That implies `right = left - 1`, and the integer square root (floor) is `right`.
+That implies `right = left - 1` or `left > right`. 
 
-### Tiny trace example: x = 8
+`left` must be invalid at this point due to above key invariant: **everything **> right** is known to be too large (square > x)**
+
+The integer square root (floor) is `right`.
+
+### Tiny trace example: x = 8.
 
 √8 ≈ 2.82, answer should be `2`.
 
