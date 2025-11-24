@@ -4,7 +4,7 @@ Because of how the pointers move, when the loop finishes you're _guaranteed_ tha
 
 Throughout the search the code maintains this idea:
 - everything **≤ right** is still a candidate whose square might be ≤ x
-- everything **≥ left** is known (or will be known) to be too large (square > x)
+- everything **> right** is known to be too large (square > x)
 
 More concretely:
 - When `mid*mid < x`, `mid` is too small, so you do `left = mid + 1`.  
