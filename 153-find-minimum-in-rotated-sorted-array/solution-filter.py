@@ -3,7 +3,14 @@ from typing import List
 """
 Apply a filter of < last element to each element, and we get a boolean array
 
-[3,4,5,1,2] => filter( < last element) => [F, F, F, F, T, T]
+nums:    [1, 2, 3, 4, 5]; last element = 5
+filter:  [T, T, T, T, T]
+
+nums:    [3, 4, 5, 1, 2]; last element = 2
+filter:  [F, F, F, T, T]
+
+nums:    [4, 5, 1, 2, 3]; last element = 3
+filter:  [F, F, T, T, T]
 
 Now the problem becomes finding the first T which can easily solved with binary search.
 
@@ -13,19 +20,14 @@ class Solution:
     def findMin(self, nums: List[int]) -> int:
         left, right = 0, len(nums) - 1
 
-        boundary_index = -1
-
         while left <= right:
             mid = (left + right) // 2
-
-            # if mid <= last element, then belongs to lower half
-            if nums[mid] <= nums[-1]:
-                boundary_index = mid
-                right = mid - 1
-            else:
+            if nums[mid] > nums[-1]:
                 left = mid + 1
+            else:
+                right = mid - 1
 
-        return nums[boundary_index]
+        return nums[left]
 
 
 sol = Solution()
