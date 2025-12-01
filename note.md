@@ -85,10 +85,11 @@ When converting a recursive algorithm to an iterative approach, we typically nee
 
 - Use `mid = low + (high - low) // 2` to avoid integer overflow
 
-- Think about what happens once the search space is of length-two.
-
-- The short rule to remember is: if you used `hi = mid - 1`, then use the higher midpoint. If you used `lo = mid + 1`, then use the lower midpoint. If you used both of these, then you can use either midpoint. If you didn’t use either (i.e., you have `lo = mid` and `hi = mid`), then, unfortunately, your code is buggy, and you won’t be able to guarantee convergence.
-
+- Which calculation for `mid` should we use?
+  - Whenever you’re doing a binary search with the `while lo is less than hi` condition (i.e., reducing the search space to length-one), you must have at least one of `hi = mid - 1` and `lo = mid + 1`. If you have neither of these, then your algorithm might infinitely loop once the search space is of length-two.
+  - Think about what happens once the search space is of length-two.
+  - The short rule to remember is: if you used `hi = mid - 1`, then use the higher midpoint. If you used `lo = mid + 1`, then use the lower midpoint. If you used both of these, then you can use either midpoint. If you didn’t use either (i.e., you have `lo = mid` and `hi = mid`), then, unfortunately, your code is buggy, and you won’t be able to guarantee convergence.
+  - Whenever we want the upper middle, we use either `mid = (lo + hi + 1) / 2` or `mid = lo + (hi - lo + 1) / 2`. These formulas ensure that on even-lengthed search spaces, the upper middle is chosen and on odd-lengthed search spaces, the actual middle is chosen.
 
 ### Insertion Position
 
