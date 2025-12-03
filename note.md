@@ -91,6 +91,112 @@ When converting a recursive algorithm to an iterative approach, we typically nee
   - The short rule to remember is: if you used `hi = mid - 1`, then use the higher midpoint. If you used `lo = mid + 1`, then use the lower midpoint. If you used both of these, then you can use either midpoint. If you didn’t use either (i.e., you have `lo = mid` and `hi = mid`), then, unfortunately, your code is buggy, and you won’t be able to guarantee convergence.
   - Whenever we want the upper middle, we use either `mid = (lo + hi + 1) / 2` or `mid = lo + (hi - lo + 1) / 2`. These formulas ensure that on even-lengthed search spaces, the upper middle is chosen and on odd-lengthed search spaces, the actual middle is chosen.
 
+### Binary Search Patterns
+
+Almost all binary search patterns are:
+
+“Find a boundary in a monotone boolean function pred(i)”.
+
+Examples of monotone patterns:
+
+- `a[i] >= x` goes from `false false … false true true … true`
+- `a[i] <= x` goes from `true true … true false false … false`
+
+Then you’re usually doing one of:
+
+1. Any index where `a[i] == x` (viewing `== x` as the region between two monotone boundaries: the first `i` with `a[i] ≥ x` and the first `i` with `a[i] > x`)
+2. First index where `pred(i)` becomes true (first-true / lower_bound)
+3. Last index where `pred(i)` is still true (last-true / upper_bound)
+
+#### Pattern 1 - Exact Match Search
+
+Typical goals:
+- Find any index `i` with `a[i] == x`.
+
+```python
+def binary_search_exact(nums, target):
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+
+    while left <= right:
+        mid = left + (right - left) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    # End Condition: left > right
+    return -1
+```
+
+#### Pattern 2 - First-true / lower_bound (left boundary)
+
+Typical goals:
+- First index `i` such that `a[i] >= x`
+- `false false … false true true … true`
+- First index where some condition becomes true.
+
+```python
+def binary_search_first_true(nums, target):
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+
+    while left < right:
+        mid = left + (right - left) // 2  # Note: using LOWER midpoint
+
+        if nums[mid] >= target:           # True condition, keep mid
+            right = mid
+        else:                      
+            left = mid + 1                # False condition, skip mid
+
+    # Post-processing:
+    # End Condition: left == right
+    # If the target is found in the array, return it's index. Otherwise, return -1. 
+    return left if nums and nums[left] >= target else -1
+
+print(binary_search_first_true([1,1,2,3,3,4,4], 3) == 3)
+print(binary_search_first_true([1,1,2,3,3,4], 5) == -1)
+print(binary_search_first_true([1,1,2,3,3,4,4,5,5,5], 5) == 7)    
+```
+
+#### Pattern 3 - Last-true / upper_bound (right boundary)
+
+Typical goals:
+- Last index `i` such that `a[i] <= x`
+- `true true … true false false … false`
+- Last index where some condition is true.
+
+```python
+def binary_search_last_true(nums, target):
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums) - 1
+
+    while left < right:
+        mid = left + (right - left + 1) // 2   # Note: using UPPER midpoint
+
+        if nums[mid] <= target:                # True condition, keep mid
+            left = mid
+        else:                      
+            right = mid - 1                    # False condition, skip mid
+
+    # Post-processing:
+    # End Condition: left == right
+    # If the target is found in the array, return it's index. Otherwise, return -1. 
+    return left if nums and nums[left] <= target else -1
+
+print(binary_search_last_true([1,1,2,3,3,4,4], 3) == 4)
+print(binary_search_last_true([1,1,2,3,3,4], 0) == -1)
+print(binary_search_last_true([1,1,2,3,3,4,4,5,5,5], 6) == 9)    
+```
+
 ### Insertion Position
 
 The Lower Bound and Upper Bound matters when there are duplicate elements in the list.
