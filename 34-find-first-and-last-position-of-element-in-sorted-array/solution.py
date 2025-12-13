@@ -3,6 +3,9 @@ from typing import List
 
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            return [-1, -1]
+
         n = len(nums) - 1
         l = 0
         r = n
@@ -17,7 +20,10 @@ class Solution:
             else:
                 r = m
 
-        lower_bound = l if nums and nums[l] == target else -1
+        if nums[l] != target:
+            return [-1, -1]
+
+        lower_bound = l
 
         l = 0
         r = n
@@ -32,7 +38,10 @@ class Solution:
             else:
                 l = m
 
-        upper_bound = l if nums and nums[l] == target else -1
+        if nums[l] != target:
+            return [-1, -1]
+
+        upper_bound = l
 
         return [lower_bound, upper_bound]
 
